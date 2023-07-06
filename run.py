@@ -12,3 +12,12 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('botw_quiz')
 
+
+print("Greetings, Hylian!\n")
+
+username = input("Please enter your name: \n")
+
+print(f"Welcome, {username}!")
+
+print("Please select one of the following options:\n")
+
