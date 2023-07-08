@@ -32,4 +32,12 @@ for x in questions_dict:
     option_d = x['option_d']
     correct_answer = x['correct_answer']
 
+print(question)
+print(option_a)
+print(option_b)
+print(option_c)
+print(option_d)
+user_answer = input("Your answer: ")
+
+
 
