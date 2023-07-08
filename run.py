@@ -21,3 +21,15 @@ print(f"Welcome, {username}!")
 
 print("Please select one of the following options:\n")
 
+data = SHEET.worksheet("questions_and_answers")
+questions_dict = data.get_all_records()
+
+for x in questions_dict: 
+    question = x['question']
+    option_a = x['option_a']
+    option_b = x['option_b']
+    option_c = x['option_c']
+    option_d = x['option_d']
+    correct_answer = x['correct_answer']
+
+
