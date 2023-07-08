@@ -12,9 +12,11 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('botw_quiz')
 
+# Get a dictionary of all questions, answer options & correct answers
 data = SHEET.worksheet("questions_and_answers")
 questions_dict = data.get_all_records()
 
+# Unpack the dictionary to access the questions, answer options & correct answers
 for x in questions_dict: 
     question = x['question']
     option_a = x['option_a']
@@ -53,3 +55,4 @@ def main():
     load_main_menu()
     run_quiz()
 
+main()
