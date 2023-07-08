@@ -38,7 +38,17 @@ def load_main_menu():
     print("1. Start Quiz")
     print("2. Scoreboard")
     print("3. Exit Quiz")
-    menu_choice = input("Enter your choice (1-3): ")
+    try:
+        menu_choice = input("Enter your choice (1-3): ")
+        if menu_choice == 1:
+            run_quiz()
+        elif menu_choice == 2:
+            print("Load scoreboard - placeholder")
+        elif menu_choice == 3:
+            print("Exiting..")
+    except ValueError as e:
+        print("Invalid input: {e}, please enter a number from 1-3.")
+
 
 
 def run_quiz():
@@ -53,6 +63,5 @@ def run_quiz():
 def main():
     get_username()
     load_main_menu()
-    run_quiz()
 
 main()
