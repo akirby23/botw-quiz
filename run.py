@@ -117,6 +117,7 @@ def load_scoreboard():
             else:
                 clear_terminal()
                 load_main_menu() 
+                break
         except ValueError as e:
             print(f"Invalid input: {e}, please enter 'q' to return to the main menu.")
         
