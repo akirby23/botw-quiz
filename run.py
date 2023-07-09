@@ -68,12 +68,13 @@ def load_main_menu():
 
 
 def run_quiz():
-    print(question)
-    print(option_a)
-    print(option_b)
-    print(option_c)
-    print(option_d)
-    user_answer = input("Your answer: ")
+    for key, value in x.items():
+       print(question)
+       print('a.', option_a)
+       print('b.', option_b)
+       print('c.', option_c)
+       print('d.', option_d)
+       user_answer = input("Your answer: ")
 
 
 def main():
