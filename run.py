@@ -1,4 +1,5 @@
 import gspread
+import os
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -68,6 +69,7 @@ def load_main_menu():
 
 
 def run_quiz():
+    clear_terminal()
     for key, value in x.items():
        print(question)
        print('a.', option_a)
@@ -75,6 +77,10 @@ def run_quiz():
        print('c.', option_c)
        print('d.', option_d)
        user_answer = input("Your answer: ")
+
+
+def clear_terminal():
+    os.system('clear')
 
 
 def main():
