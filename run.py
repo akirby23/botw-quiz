@@ -31,15 +31,6 @@ for x in questions_dict:
 scores = SHEET.worksheet("scoreboard")
 scores_dict = scores.get_all_records()
 
-"""
-Print user names & scores in the form of a table
-Written with the help of Stack Overflow
-"""
-header = scores_dict[0].keys()
-rows = [y.values() for y in scores_dict]
-print(tabulate.tabulate(rows, header, tablefmt='rst'))
-
-
 
 def get_username():
     print("Greetings, Hylian!\n")
@@ -72,7 +63,7 @@ def load_main_menu():
                 start_quiz()
                 break
             elif menu_choice == 2:
-                print("Load scoreboard (placeholder)")
+                load_scoreboard()
                 break
             elif menu_choice == 3:
                 print("Exiting...")
@@ -108,6 +99,28 @@ def run_quiz():
        user_answer = input("Your answer: ")
 
 
+def load_scoreboard():
+    """
+    Print user names & scores in the form of a table
+    Written with the help of Stack Overflow
+    """
+    clear_terminal()
+    header = scores_dict[0].keys()
+    rows = [y.values() for y in scores_dict]
+    print(tabulate.tabulate(rows, header, tablefmt='rst'))
+    while True:
+        try:
+            user_input = input("Enter 'q' to return to the main menu: ")
+            if user_input != "q":
+                raise ValueError
+                continue
+            else:
+                clear_terminal()
+                load_main_menu() 
+        except ValueError as e:
+            print(f"Invalid input: {e}, please enter 'q' to return to the main menu.")
+        
+        
 def clear_terminal():
     os.system('clear')
 
@@ -116,4 +129,4 @@ def main():
     get_username()
     load_main_menu()
 
-# main()
+main()
