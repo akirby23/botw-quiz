@@ -20,6 +20,7 @@ questions_dict = data.get_all_records()
 
 # Unpack the list of dictionaries to access the questions, answer options & correct answers
 for x in questions_dict: 
+    question_number = x['question_number']
     question = x['question']
     option_a = x['option_a']
     option_b = x['option_b']
@@ -84,19 +85,45 @@ def start_quiz():
     print("Important note: This quiz may contain spoilers relating to the gameplay & storyline of The Legend of Zelda: Breath of the Wild. If you want to experience the game without spoilers, it may be best to avoid the quiz for now.\n")
     print("Are you ready to prove yourself as a hero of Hyrule?")
     print("y - Start Quiz")
-    print("n - Return to Main Menu")
-    input("Enter your choice (y/n): ")
-
+    print("n - Return to Main Menu\n")
+    while True:
+        try:
+            user_input = input("Enter your choice (y/n): ")
+            if user_input == "y":
+                clear_terminal()
+                run_quiz()
+                break
+            elif user_input == "n":
+                clear_terminal()
+                load_main_menu()
+                break
+            else:
+                raise ValueError
+                continue
+        except ValueError as e:
+            print(f"Invalid input: {e}, please enter 'y'or 'n'.")
+        
 
 def run_quiz():
     clear_terminal()
     for key, value in x.items():
-       print(question)
+       print(question_number,question)
        print('a.', option_a)
        print('b.', option_b)
        print('c.', option_c)
        print('d.', option_d)
-       user_answer = input("Your answer: ")
+       while True:
+        try:
+            user_answer = input("Your answer: ")
+            if user_answer == correct_answer:
+                print("Correct!")
+                break
+            else:
+                print(f"Not quite! The correct option was {correct_answer}.")
+                break
+        except:
+            raise ValueError
+            print("Invalid input. Please enter 'a', 'b', 'c' or 'd'.")
 
 
 def load_scoreboard():
