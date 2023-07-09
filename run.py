@@ -52,7 +52,7 @@ def load_main_menu():
     print("Please select one of the following options:\n")
     print("1. Start Quiz")
     print("2. Scoreboard")
-    print("3. Exit Quiz")
+    print("3. Exit Quiz\n")
     while True:
         try:
             menu_choice = int(input("Enter your choice (1-3): "))
@@ -112,18 +112,7 @@ def run_quiz():
        print('b.', option_b)
        print('c.', option_c)
        print('d.', option_d)
-       while True:
-        try:
-            user_answer = input("Your answer: ")
-            if user_answer == correct_answer:
-                print("Correct!")
-                break
-            else:
-                print(f"Not quite! The correct option was {correct_answer}.")
-                break
-        except:
-            raise ValueError
-            print("Invalid input. Please enter 'a', 'b', 'c' or 'd'.")
+       user_answer = input("Your answer: ")
 
 
 def load_scoreboard():
