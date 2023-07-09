@@ -28,8 +28,15 @@ for x in questions_dict:
 
 def get_username():
     print("Greetings, Hylian!\n")
+    try:
+        username = input("Please enter your name: \n")
+    except ValueError as e:
+        print(f"Invalid input: {e}, please enter a name between 2-10 characters long.")
+    if len(username) < 2 and len(username) > 10:
+        raise ValueError(
+            "Invalid input. Please enter a name between 2-10 characters long."
+            )
 
-    username = input("Please enter your name: \n")
 
     print(f"Welcome, {username}!\n")
 
@@ -42,8 +49,8 @@ def load_main_menu():
     while True:
         try:
             menu_choice = int(input("Enter your choice (1-3): "))
-        except ValueError:
-            print("Invalid input. Please enter a number between 1-3.")
+        except ValueError as e:
+            print(f"Invalid input: {e} Please enter a number between 1-3.")
             continue
         if menu_choice >= 1 and menu_choice <= 3:
             continue
