@@ -28,6 +28,7 @@ for x in questions_dict:
     option_d = x['option_d']
     correct_answer = x['correct_answer']
 
+
 # Get a list of dictionaries containing the user's names and scores
 scores = SHEET.worksheet("scoreboard")
 scores_dict = scores.get_all_records()
@@ -43,8 +44,6 @@ def get_username():
         raise ValueError(
             "Invalid input. Please enter a name between 2-10 characters long."
             )
-
-
     print(f"Welcome, {username}!\n")
 
 def load_main_menu():
@@ -101,18 +100,12 @@ def start_quiz():
                 raise ValueError
                 continue
         except ValueError as e:
-            print(f"Invalid input: {e}, please enter 'y'or 'n'.")
+            print(f"Invalid input: {e}, please enter 'y' or 'n'.")
         
 
 def run_quiz():
     clear_terminal()
-    for key, value in x.items():
-       print(question_number,question)
-       print('a.', option_a)
-       print('b.', option_b)
-       print('c.', option_c)
-       print('d.', option_d)
-       user_answer = input("Your answer: ")
+    print(questions_dict[0])
 
 
 def load_scoreboard():
