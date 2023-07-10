@@ -105,8 +105,13 @@ def start_quiz():
 
 def run_quiz():
     clear_terminal()
-    print(questions_dict[0])
-
+    while len(questions_dict) <= 10:
+        print(question_number, question)
+        print(option_a)
+        print(option_b)
+        print(option_c)
+        print(option_d)
+        user_answer = input("Your answer: ")
 
 def load_scoreboard():
     """
