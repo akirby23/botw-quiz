@@ -33,6 +33,7 @@ for x in questions_dict:
 scores = SHEET.worksheet("scoreboard")
 scores_dict = scores.get_all_records()
 
+print(scores)
 
 def get_username():
     print("Greetings, Hylian!\n")
@@ -49,7 +50,6 @@ def get_username():
     
 
 def load_main_menu():
-    menu_choice = 0
     print("Please select one of the following options:\n")
     print("1. Start Quiz")
     print("2. Scoreboard")
@@ -109,17 +109,11 @@ def run_quiz():
     clear_terminal()
     while len(questions_dict) <= 10:
         print(question_number, question)
-        print("a.", option_a)
-        print("b.", option_b)
-        print("c.", option_c)
-        print("d.", option_d)
+        print(option_a)
+        print(option_b)
+        print(option_c)
+        print(option_d)
         user_answer = input("Your answer: ")
-        if user_answer == correct_answer:
-            print("Correct!")
-            continue
-        else:
-            print(f"Not quite! The correct option was {correct_answer}.")
-            continue
 
 
 def load_scoreboard():
