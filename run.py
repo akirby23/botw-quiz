@@ -56,10 +56,6 @@ def load_main_menu():
     while True:
         try:
             menu_choice = int(input("Enter your choice (1-3): "))
-        except ValueError as e:
-            print(f"Invalid input: {e} Please enter a number between 1-3.")
-            continue
-        if menu_choice >= 1 and menu_choice <= 3:
             if menu_choice == 1:
                 start_quiz()
                 break
@@ -69,9 +65,12 @@ def load_main_menu():
             elif menu_choice == 3:
                 print("Exiting...")
                 break
-        else:
-            print("Invalid input. Please enter a number between 1-3.")
-
+            else:
+                raise ValueError("Please enter a number between 1-3.")
+        except ValueError as e:
+            print(f"Invalid input: {e}")
+            
+            
 
 def start_quiz():
     clear_terminal()
