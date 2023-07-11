@@ -109,11 +109,18 @@ def run_quiz():
     clear_terminal()
     while len(questions_dict) <= 10:
         print(question_number, question)
-        print(option_a)
-        print(option_b)
-        print(option_c)
-        print(option_d)
+        print("a.", option_a)
+        print("b.", option_b)
+        print("c.", option_c)
+        print("d.", option_d)
         user_answer = input("Your answer: ")
+        if user_answer == correct_answer:
+            print("Correct!")
+            continue
+        else:
+            print(f"Not quite! The correct option was {correct_answer}.")
+            continue
+
 
 def load_scoreboard():
     """
