@@ -33,7 +33,9 @@ for x in questions_dict:
 scores = SHEET.worksheet("scoreboard")
 scores_dict = scores.get_all_records()
 
-print(scores)
+# Quiz variables
+score = 0
+questions_answered = 0
 
 def get_username():
     print("Greetings, Hylian!\n")
