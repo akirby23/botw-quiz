@@ -38,7 +38,7 @@ def get_username():
     print("Greetings, Hylian!\n")
     while True:
         try:
-            username = input("Please enter your name: \n")
+            username = input("Please enter your name: \n").capitalize()
             if len(username) < 2 or len(username) > 10:
                 raise ValueError("Username needs to be between 2 and 10 characters.")
             else: 
@@ -87,17 +87,17 @@ def start_quiz():
     print("n - Return to Main Menu\n")
     while True:
         try:
-            user_input = input("Enter your choice (y/n): ")
-            if user_input == "y":
+            user_input = input("Enter your choice (Y/N): ").capitalize()
+            if user_input == "Y":
                 clear_terminal()
                 run_quiz()
                 break
-            elif user_input == "n":
+            elif user_input == "N":
                 clear_terminal()
                 load_main_menu()
                 break
             else:
-                raise ValueError("'y' or 'n' required")
+                raise ValueError("'Y' or 'N' required")
                 continue
         except ValueError as e:
             print(f"Invalid input: {e}, please try again.")
