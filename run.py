@@ -36,15 +36,17 @@ scores_dict = scores.get_all_records()
 
 def get_username():
     print("Greetings, Hylian!\n")
-    try:
-        username = input("Please enter your name: \n")
-    except ValueError as e:
-        print(f"Invalid input: {e}, please enter a name between 2-10 characters long.")
-    if len(username) < 2 and len(username) > 10:
-        raise ValueError(
-            "Invalid input. Please enter a name between 2-10 characters long."
-            )
-    print(f"Welcome, {username}!\n")
+    while True:
+        try:
+            username = input("Please enter your name: \n")
+            if len(username) < 2 or len(username) > 10:
+                raise ValueError("Username needs to be between 2 and 10 characters.")
+            else: 
+                print(f"Welcome, {username}!\n")
+                break
+        except ValueError as e:
+            print(f"Invalid input: {e} Please try again.")
+    
 
 def load_main_menu():
     menu_choice = 0
