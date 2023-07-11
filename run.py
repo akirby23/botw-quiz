@@ -98,10 +98,10 @@ def start_quiz():
                 load_main_menu()
                 break
             else:
-                raise ValueError
+                raise ValueError("'y' or 'n' required")
                 continue
         except ValueError as e:
-            print(f"Invalid input: {e}, please enter 'y' or 'n'.")
+            print(f"Invalid input: {e}, please try again.")
         
 
 def run_quiz():
