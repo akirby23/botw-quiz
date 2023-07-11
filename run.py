@@ -137,16 +137,16 @@ def load_scoreboard():
     print(tabulate.tabulate(rows, header, tablefmt='rst'))
     while True:
         try:
-            user_input = input("Enter 'q' to return to the main menu: ")
+            user_input = input("Enter 'Q' to return to the main menu: ")
             if user_input != "q":
-                raise ValueError
+                raise ValueError("'Q' needs to be entered to return to the main menu")
                 continue
             else:
                 clear_terminal()
                 load_main_menu() 
                 break
         except ValueError as e:
-            print(f"Invalid input: {e}, please enter 'q' to return to the main menu.")
+            print(f"Invalid input: {e}, please try again.")
         
         
 def clear_terminal():
