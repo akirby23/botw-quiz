@@ -33,6 +33,9 @@ for x in questions_dict:
 scores = SHEET.worksheet("scoreboard")
 scores_dict = scores.get_all_records()
 
+# Quiz variables 
+score = 0
+questions_answered = 0
 
 def get_username():
     print("Greetings, Hylian!\n")
@@ -104,8 +107,8 @@ def start_quiz():
         
 
 def run_quiz():
-    score = 0
-    questions_answered = 0
+    global score
+    global questions_answered
     clear_terminal()
     while len(questions_dict) <= 10:
         print(question_number, question)
@@ -118,10 +121,13 @@ def run_quiz():
             print("Correct!")
             score += 1
             questions_answered += 1
+            print(score)
+            print(questions_answered)
             continue
         else:
             print(f"Not quite! The correct option was {correct_answer}.")
             questions_answered += 1
+            print(questions_answered)
             continue
 
 
