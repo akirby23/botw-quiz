@@ -14,19 +14,45 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('botw_quiz')
 
-# Get a list of dictionaries for all questions, answer options & correct answers
-data = SHEET.worksheet("questions_and_answers")
-questions_dict = data.get_all_records()
+# Get a list of dictionaries for all questions
+questions_data = SHEET.worksheet("questions")
+questions_dict = questions_data.get_all_records()
 
-# Unpack the list of dictionaries to access the questions, answer options & correct answers
-for x in questions_dict: 
-    question_number = x['question_number']
-    question = x['question']
-    option_a = x['option_a']
-    option_b = x['option_b']
-    option_c = x['option_c']
-    option_d = x['option_d']
-    correct_answer = x['correct_answer']
+# Get a list of dictionaries for all answers
+answers_data = SHEET.worksheet("answers")
+answers_dict = answers_data.get_all_records()
+
+# Get a list of dictionaries for all correct answers
+correct_answers_data = SHEET.worksheet("correct_answers")
+correct_answers_dict = correct_answers_data.get_all_records()
+
+for quiz_data in zip(questions_dict, answers_dict, correct_answers_dict):
+    # Unpack the dictionary of questions to access the values of the question numbers & questions
+    for questions in questions_dict:
+        question_number = questions['question_number']
+        question = questions['question']
+    # Unpack the dictionary of answers to access the values of options a, b, c & d
+    for answers in answers_dict:
+        option_a = answers['option_a']
+        option_b = answers['option_b']
+        option_c = answers['option_c']
+        option_d = answers['option_d']
+    # Unpack the dictionary of correct answers to access the values of the correct option & correct answer
+    for correct_answers in correct_answers_dict:
+        correct_option = correct_answers['correct_option']
+        correct_answer = correct_answers['correct_answer']
+
+
+questions_and_answers = [
+    question_number,
+    question,
+    option_a,
+    option_b,
+    option_c,
+    option_d, 
+    correct_option, 
+    correct_answer
+]
 
 
 # Get a list of dictionaries containing the user's names and scores
@@ -113,21 +139,21 @@ def run_quiz():
     global questions_answered
     clear_terminal()
     while len(questions_dict) <= 10:
-        for questions_and_answers in x:
+        for load_questions in questions_and_answers:
             print(question_number, question)
-            print(option_a)
-            print(option_b)
-            print(option_c)
-            print(option_d)
+            print("a.", option_a)
+            print("b.", option_b)
+            print("c.", option_c)
+            print("d.", option_d)
             user_answer = input("Your answer: ")
-            if user_answer == correct_answer:
+            if user_answer == correct_option:
                 print("Correct!")
                 score += 1
                 questions_answered += 1
                 print(score)
                 continue
             else:
-                print(f"Not quite! The correct option was {correct_answer}.")
+                print(f"Not quite! The correct answer was {correct_option}: {correct_answer}.")
                 questions_answered += 1
                 continue
 
@@ -165,4 +191,4 @@ def main():
     load_main_menu()
     finish_quiz()
 
-main()
+# main()
