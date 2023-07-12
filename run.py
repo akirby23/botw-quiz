@@ -26,33 +26,38 @@ answers_dict = answers_data.get_all_records()
 correct_answers_data = SHEET.worksheet("correct_answers")
 correct_answers_dict = correct_answers_data.get_all_records()
 
-for quiz_data in zip(questions_dict, answers_dict, correct_answers_dict):
-    # Unpack the dictionary of questions to access the values of the question numbers & questions
-    for questions in questions_dict:
-        question_number = questions['question_number']
-        question = questions['question']
-    # Unpack the dictionary of answers to access the values of options a, b, c & d
-    for answers in answers_dict:
-        option_a = answers['option_a']
-        option_b = answers['option_b']
-        option_c = answers['option_c']
-        option_d = answers['option_d']
-    # Unpack the dictionary of correct answers to access the values of the correct option & correct answer
-    for correct_answers in correct_answers_dict:
-        correct_option = correct_answers['correct_option']
-        correct_answer = correct_answers['correct_answer']
+question_number_list = []
+question_list = []
+option_a_list = []
+option_b_list = []
+option_c_list = []
+option_d_list = []
+correct_option_list = []
+correct_answer_list = []
 
+# Unpack the dictionary of questions to access the values of the question numbers & questions
+for questions in questions_dict:
+    question_number = questions['question_number']
+    question = questions['question']
+    question_number_list.append(question_number)
+    question_list.append(question)
+# Unpack the dictionary of answers to access the values of options a, b, c & d
+for answers in answers_dict:
+    option_a = answers['option_a']
+    option_b = answers['option_b']
+    option_c = answers['option_c']
+    option_d = answers['option_d']
+    option_a_list.append(option_a)
+    option_b_list.append(option_b)
+    option_c_list.append(option_c)
+    option_d_list.append(option_d)
 
-questions_and_answers = [
-    question_number,
-    question,
-    option_a,
-    option_b,
-    option_c,
-    option_d, 
-    correct_option, 
-    correct_answer
-]
+# Unpack the dictionary of correct answers to access the values of the correct option & correct answer
+for correct_answers in correct_answers_dict:
+    correct_option = correct_answers['correct_option']
+    correct_answer = correct_answers['correct_answer']
+    correct_option_list.append(correct_option)
+    correct_answer_list.append(correct_answer)
 
 
 # Get a list of dictionaries containing the user's names and scores
@@ -63,6 +68,46 @@ scores_dict = scores.get_all_records()
 username = ""
 score = 0
 questions_answered = 0
+
+QUIZ_QUESTIONS = {
+    question_list[0],
+    question_list[1],
+    question_list[2],
+    question_list[3],
+    question_list[4],
+    question_list[5],
+    question_list[6],
+    question_list[7],
+    question_list[8],
+    question_list[9],
+}
+
+QUIZ_ANSWERS = [
+    [option_a_list[0], option_b_list[0], option_c_list[0], option_d_list[0]],
+    [option_a_list[1], option_b_list[1], option_c_list[1], option_d_list[1]],
+    [option_a_list[2], option_b_list[2], option_c_list[2], option_d_list[2]],
+    [option_a_list[3], option_b_list[3], option_c_list[3], option_d_list[3]],
+    [option_a_list[4], option_b_list[4], option_c_list[4], option_d_list[4]],
+    [option_a_list[5], option_b_list[5], option_c_list[5], option_d_list[5]],
+    [option_a_list[6], option_b_list[6], option_c_list[6], option_d_list[6]],
+    [option_a_list[7], option_b_list[7], option_c_list[7], option_d_list[7]],
+    [option_a_list[8], option_b_list[8], option_c_list[8], option_d_list[8]],
+    [option_a_list[9], option_b_list[9], option_c_list[9], option_d_list[9]],
+]
+
+CORRECT_QUIZ_ANSWERS = [
+    [correct_option_list[0], correct_answer_list[0]],
+    [correct_option_list[1], correct_answer_list[1]],
+    [correct_option_list[2], correct_answer_list[2]],
+    [correct_option_list[3], correct_answer_list[3]],
+    [correct_option_list[4], correct_answer_list[4]],
+    [correct_option_list[5], correct_answer_list[5]],
+    [correct_option_list[6], correct_answer_list[6]],
+    [correct_option_list[7], correct_answer_list[7]],
+    [correct_option_list[8], correct_answer_list[8]],
+    [correct_option_list[9], correct_answer_list[9]],
+]
+
 
 def get_username():
     print("Greetings, Hylian!\n")
@@ -100,8 +145,7 @@ def load_main_menu():
                 raise ValueError("Please enter a number between 1-3.")
         except ValueError as e:
             print(f"Invalid input: {e}")
-            
-            
+                  
 
 def start_quiz():
     clear_terminal()
@@ -138,26 +182,23 @@ def run_quiz():
     global score
     global questions_answered
     clear_terminal()
-    while len(questions_dict) <= 10:
-        for load_questions in questions_and_answers:
+    for load_questions in questions_and_answers:
             print(question_number, question)
-            print("a.", option_a)
-            print("b.", option_b)
-            print("c.", option_c)
-            print("d.", option_d)
-            user_answer = input("Your answer: ")
-            if user_answer == correct_option:
-                print("Correct!")
-                score += 1
-                questions_answered += 1
-                print(score)
-                continue
-            else:
-                print(f"Not quite! The correct answer was {correct_option}: {correct_answer}.")
-                questions_answered += 1
-                continue
-
-            
+            print(option_a)
+            print(option_b)
+            print(option_c)
+            print(option_d)
+        user_answer = input("Your answer: ")
+        if user_answer == f{correct_quiz_answers}:
+            print("Correct!")
+            score += 1
+            questions_answered += 1
+            continue
+        else:
+            print(f"Not quite! The correct answer was {correct_option}: {correct_answer}.")
+            questions_answered += 1
+            continue
+         
 
 def load_scoreboard():
     """
@@ -189,6 +230,5 @@ def clear_terminal():
 def main():
     get_username()
     load_main_menu()
-    finish_quiz()
 
-# main()
+main()
