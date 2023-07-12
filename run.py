@@ -70,16 +70,16 @@ score = 0
 questions_answered = 0
 
 QUIZ_QUESTIONS = {
-    question_list[0],
-    question_list[1],
-    question_list[2],
-    question_list[3],
-    question_list[4],
-    question_list[5],
-    question_list[6],
-    question_list[7],
-    question_list[8],
-    question_list[9],
+    question_list[0]: "B",
+    question_list[1]: "A",
+    question_list[2]: "D",
+    question_list[3]: "A",
+    question_list[4]: "C",
+    question_list[5]: "B",
+    question_list[6]: "D",
+    question_list[7]: "B",
+    question_list[8]: "A",
+    question_list[9]: "C",
 }
 
 QUIZ_ANSWERS = [
@@ -95,18 +95,9 @@ QUIZ_ANSWERS = [
     [option_a_list[9], option_b_list[9], option_c_list[9], option_d_list[9]],
 ]
 
-CORRECT_QUIZ_ANSWERS = [
-    [correct_option_list[0], correct_answer_list[0]],
-    [correct_option_list[1], correct_answer_list[1]],
-    [correct_option_list[2], correct_answer_list[2]],
-    [correct_option_list[3], correct_answer_list[3]],
-    [correct_option_list[4], correct_answer_list[4]],
-    [correct_option_list[5], correct_answer_list[5]],
-    [correct_option_list[6], correct_answer_list[6]],
-    [correct_option_list[7], correct_answer_list[7]],
-    [correct_option_list[8], correct_answer_list[8]],
-    [correct_option_list[9], correct_answer_list[9]],
-]
+print(QUIZ_QUESTIONS)
+print(QUIZ_ANSWERS)
+print(CORRECT_QUIZ_ANSWERS)
 
 
 def get_username():
@@ -182,22 +173,20 @@ def run_quiz():
     global score
     global questions_answered
     clear_terminal()
-    for load_questions in questions_and_answers:
-            print(question_number, question)
-            print(option_a)
-            print(option_b)
-            print(option_c)
-            print(option_d)
-        user_answer = input("Your answer: ")
-        if user_answer == f{correct_quiz_answers}:
-            print("Correct!")
-            score += 1
-            questions_answered += 1
-            continue
-        else:
-            print(f"Not quite! The correct answer was {correct_option}: {correct_answer}.")
-            questions_answered += 1
-            continue
+    for load_questions in QUIZ_QUESTIONS:
+        print(load_questions)
+        for load_answers in QUIZ_ANSWERS:
+            print(load_answers)
+            user_answer = input("Your answer: ")
+            if user_answer == correct_option:
+                print("Correct!")
+                score += 1
+                questions_answered += 1
+                continue
+            else:
+                print(f"Not quite! The correct answer was {correct_option}: {correct_answer}.")
+                questions_answered += 1
+                continue
          
 
 def load_scoreboard():
@@ -231,4 +220,4 @@ def main():
     get_username()
     load_main_menu()
 
-main()
+# main()
