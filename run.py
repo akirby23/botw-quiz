@@ -95,10 +95,6 @@ QUIZ_ANSWERS = [
     [option_a_list[9], option_b_list[9], option_c_list[9], option_d_list[9]],
 ]
 
-print(QUIZ_QUESTIONS)
-print(QUIZ_ANSWERS)
-print(CORRECT_QUIZ_ANSWERS)
-
 
 def get_username():
     print("Greetings, Hylian!\n")
@@ -176,9 +172,9 @@ def run_quiz():
     for load_questions in QUIZ_QUESTIONS:
         print(load_questions)
         for load_answers in QUIZ_ANSWERS:
-            print(load_answers)
+            print(*load_answers, sep="\n")
             user_answer = input("Your answer: ")
-            if user_answer == correct_option:
+            if user_answer == :
                 print("Correct!")
                 score += 1
                 questions_answered += 1
@@ -220,4 +216,4 @@ def main():
     get_username()
     load_main_menu()
 
-# main()
+main()
