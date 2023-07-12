@@ -120,6 +120,7 @@ def get_username():
     
 
 def load_main_menu():
+    clear_terminal()
     print("Please select one of the following options:\n")
     print("1. Start Quiz")
     print("2. Scoreboard")
