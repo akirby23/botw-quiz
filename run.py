@@ -2,6 +2,7 @@ import gspread
 import os
 import tabulate
 from google.oauth2.service_account import Credentials
+from art import logo
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -95,6 +96,13 @@ QUIZ_ANSWERS = [
     [option_a_list[9], option_b_list[9], option_c_list[9], option_d_list[9]],
 ]
 
+def load_title_screen():
+    print(logo)
+    title_screen_input = input("Press ENTER to begin")
+    if title_screen_input == "":
+        clear_terminal()
+        get_username()
+
 
 def get_username():
     print("Greetings, Hylian!\n")
@@ -174,7 +182,7 @@ def run_quiz():
         for load_answers in QUIZ_ANSWERS:
             print(*load_answers, sep="\n")
             user_answer = input("Your answer: ")
-            if user_answer == :
+            if user_answer == correct_answer:
                 print("Correct!")
                 score += 1
                 questions_answered += 1
@@ -213,7 +221,7 @@ def clear_terminal():
 
 
 def main():
-    get_username()
+    load_title_screen()
     load_main_menu()
 
 main()
