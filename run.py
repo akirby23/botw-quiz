@@ -34,6 +34,7 @@ scores = SHEET.worksheet("scoreboard")
 scores_dict = scores.get_all_records()
 
 # Quiz variables 
+username = ""
 score = 0
 questions_answered = 0
 
@@ -41,6 +42,7 @@ def get_username():
     print("Greetings, Hylian!\n")
     while True:
         try:
+            global username
             username = input("Please enter your name: \n").capitalize()
             if len(username) < 2 or len(username) > 10:
                 raise ValueError("Username needs to be between 2 and 10 characters.")
@@ -111,25 +113,25 @@ def run_quiz():
     global questions_answered
     clear_terminal()
     while len(questions_dict) <= 10:
-        print(question_number, question)
-        print(option_a)
-        print(option_b)
-        print(option_c)
-        print(option_d)
-        user_answer = input("Your answer: ")
-        if user_answer == correct_answer:
-            print("Correct!")
-            score += 1
-            questions_answered += 1
-            print(score)
-            print(questions_answered)
-            continue
-        else:
-            print(f"Not quite! The correct option was {correct_answer}.")
-            questions_answered += 1
-            print(questions_answered)
-            continue
+        for questions_and_answers in x:
+            print(question_number, question)
+            print(option_a)
+            print(option_b)
+            print(option_c)
+            print(option_d)
+            user_answer = input("Your answer: ")
+            if user_answer == correct_answer:
+                print("Correct!")
+                score += 1
+                questions_answered += 1
+                print(score)
+                continue
+            else:
+                print(f"Not quite! The correct option was {correct_answer}.")
+                questions_answered += 1
+                continue
 
+            
 
 def load_scoreboard():
     """
@@ -161,5 +163,6 @@ def clear_terminal():
 def main():
     get_username()
     load_main_menu()
+    finish_quiz()
 
 main()
