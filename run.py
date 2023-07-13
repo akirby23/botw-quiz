@@ -71,17 +71,19 @@ score = 0
 questions_answered = 0
 
 QUIZ_QUESTIONS = {
-    question_list[0]: "B",
-    question_list[1]: "A",
-    question_list[2]: "D",
-    question_list[3]: "A",
-    question_list[4]: "C",
-    question_list[5]: "B",
-    question_list[6]: "D",
-    question_list[7]: "B",
-    question_list[8]: "A",
-    question_list[9]: "C",
+    question_list[0]: correct_option_list[0],
+    question_list[1]: correct_option_list[1],
+    question_list[2]: correct_option_list[2],
+    question_list[3]: correct_option_list[3],
+    question_list[4]: correct_option_list[4],
+    question_list[5]: correct_option_list[5],
+    question_list[6]: correct_option_list[6],
+    question_list[7]: correct_option_list[7],
+    question_list[8]: correct_option_list[8],
+    question_list[9]: correct_option_list[9],
 }
+
+print(QUIZ_QUESTIONS)
 
 QUIZ_ANSWERS = [
     [option_a_list[0], option_b_list[0], option_c_list[0], option_d_list[0]],
