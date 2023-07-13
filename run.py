@@ -180,6 +180,7 @@ def run_quiz():
     global questions_answered
     clear_terminal()
     for (q, a), ans in zip(QUIZ_QUESTIONS.items(), QUIZ_ANSWERS):
+        correct_answer = a
         print(q)
         print(*ans, sep="\n")
         user_answer = input("Your answer: ")
@@ -189,7 +190,7 @@ def run_quiz():
             questions_answered += 1
             continue
         else:
-            print(f"Not quite! The correct answer was {correct_option}: {correct_answer}.")
+            print(f"Not quite! The correct answer was option: {a}.")
             questions_answered += 1
             continue
 
