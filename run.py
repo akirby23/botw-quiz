@@ -83,7 +83,6 @@ QUIZ_QUESTIONS = {
     question_list[9]: correct_option_list[9],
 }
 
-print(QUIZ_QUESTIONS)
 
 QUIZ_ANSWERS = [
     [option_a_list[0], option_b_list[0], option_c_list[0], option_d_list[0]],
@@ -180,21 +179,20 @@ def run_quiz():
     global score
     global questions_answered
     clear_terminal()
-    for load_questions in QUIZ_QUESTIONS:
-        print(load_questions)
-        for load_answers in QUIZ_ANSWERS:
-            print(*load_answers, sep="\n")
-            user_answer = input("Your answer: ")
-            if user_answer == correct_answer:
-                print("Correct!")
-                score += 1
-                questions_answered += 1
-                continue
-            else:
-                print(f"Not quite! The correct answer was {correct_option}: {correct_answer}.")
-                questions_answered += 1
-                continue
-         
+    for (q, a), ans in zip(QUIZ_QUESTIONS.items(), QUIZ_ANSWERS):
+        print(q)
+        print(*ans, sep="\n")
+        user_answer = input("Your answer: ")
+        if user_answer == correct_answer:
+            print("Correct!")
+            score += 1
+            questions_answered += 1
+            continue
+        else:
+            print(f"Not quite! The correct answer was {correct_option}: {correct_answer}.")
+            questions_answered += 1
+            continue
+
 
 def load_scoreboard():
     """
