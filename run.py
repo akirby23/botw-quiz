@@ -206,19 +206,23 @@ def finish_quiz():
     if score == 10:
         print(f"Congratulations, {username}! You have well and truly proven yourself as a hero of Hyrule!")
         print(f"Your final score is: {score}.")
+        update_scoreboard()
         play_again()
     elif score >= 7:
         print(f"Well done, {username}! You are well on your way to proving yourself as a hero of Hyrule.")
         print(f"Your final score is: {score}.")
+        update_scoreboard()
         play_again()
     elif score >= 5:
         print(f"Not bad, {username}. With a little more exploration you will be well on your way to proving yourself as a hero of Hyrule!")
         print(f"Your final score is: {score}.")
+        update_scoreboard()
         play_again()
     elif score < 5:
         print(f"Thank you for playing, {username}.")
         print(f"Your final score is: {score}.")
         print("We hope that you see this as an opportunity to delve deeper into the vast kingdom of Hyrule!")
+        update_scoreboard()
         play_again()
 
 def load_scoreboard():
@@ -242,6 +246,15 @@ def load_scoreboard():
                 break
         except ValueError as e:
             print(f"Invalid input: {e}, please try again.")
+
+
+def update_scoreboard():
+    print("Updating scoreboard...")
+    global username
+    global score
+    scoreboard_data = (username, score)
+    scores.append_row(scoreboard_data)
+    print("Scoreboard updated.")
 
 
 def reset_quiz():
@@ -284,3 +297,4 @@ def main():
     load_title_screen()
 
 main()
+
