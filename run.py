@@ -105,8 +105,8 @@ def start_quiz():
     print("5. Once you have answered all 10 questions, your final score will be revealed.\n")
     print("Important note: This quiz may contain spoilers relating to the gameplay & storyline of The Legend of Zelda: Breath of the Wild. If you want to experience the game without spoilers, it may be best to avoid the quiz for now.\n")
     slow_print("Are you ready to prove yourself as a hero of Hyrule?")
-    slow_print("y - Start Quiz")
-    slow_print("n - Return to Main Menu\n")
+    slow_print("Y - Start Quiz")
+    slow_print("N - Return to Main Menu\n")
     while True:
         try:
             user_input = input("Enter your choice (Y/N): ").capitalize()
