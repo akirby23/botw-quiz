@@ -21,6 +21,5 @@ oauthlib==3.2.0
 pyasn1==0.5.0
 pyasn1-modules==0.3.0
 Pygments==2.11.2
-PyGObject==3.42.1
 tabulate==0.9.0
 
