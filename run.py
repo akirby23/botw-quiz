@@ -2,6 +2,7 @@ import gspread
 import os
 import tabulate
 import time
+import sys
 from google.oauth2.service_account import Credentials
 from art import logo
 from questions import QUIZ_QUESTIONS, QUIZ_ANSWERS
@@ -41,7 +42,7 @@ def get_username():
     Prompts the user to enter their name. 
     Throws a ValueError if the name is less than 2 characters or more than 10 characters
     """
-    print("Greetings, Hylian!\n")
+    slow_print("Greetings, Hylian!\n")
     while True:
         try:
             global username
@@ -65,10 +66,10 @@ def load_main_menu():
     Throws a ValueError if the user submits a value that is not 1, 2 or 3.  
     """
     clear_terminal()
-    print("Please select one of the following options:\n")
-    print("1. Start Quiz")
-    print("2. Scoreboard")
-    print("3. Exit Quiz\n")
+    slow_print("Please select one of the following options:\n")
+    slow_print("1. Start Quiz")
+    slow_print("2. Scoreboard")
+    slow_print("3. Exit Quiz\n")
     while True:
         try:
             menu_choice = int(input("Enter your choice (1-3): "))
@@ -103,9 +104,9 @@ def start_quiz():
     print("4. You will earn 1 point for each correct answer.")
     print("5. Once you have answered all 10 questions, your final score will be revealed.\n")
     print("Important note: This quiz may contain spoilers relating to the gameplay & storyline of The Legend of Zelda: Breath of the Wild. If you want to experience the game without spoilers, it may be best to avoid the quiz for now.\n")
-    print("Are you ready to prove yourself as a hero of Hyrule?")
-    print("y - Start Quiz")
-    print("n - Return to Main Menu\n")
+    slow_print("Are you ready to prove yourself as a hero of Hyrule?")
+    slow_print("y - Start Quiz")
+    slow_print("n - Return to Main Menu\n")
     while True:
         try:
             user_input = input("Enter your choice (Y/N): ").capitalize()
@@ -140,8 +141,8 @@ def run_quiz():
     clear_terminal()
     for (q, a), ans in zip(QUIZ_QUESTIONS.items(), QUIZ_ANSWERS):
         correct_answer = a
-        print(q)
-        print(*ans, sep="\n")
+        slow_print(q)
+        slow_print(*ans, sep="\n")
         user_answer = input("Your answer: ").capitalize()
         if user_answer == correct_answer:
             print("Correct!")
@@ -167,24 +168,24 @@ def finish_quiz():
     global questions_answered
     clear_terminal()
     if score == 10:
-        print(f"Congratulations, {username}! You have well and truly proven yourself as a hero of Hyrule!")
-        print(f"Your final score is: {score}.")
+        slow_print(f"Congratulations, {username}! You have well and truly proven yourself as a hero of Hyrule!")
+        slow_print(f"Your final score is: {score}.")
         update_scoreboard()
         play_again()
     elif score >= 7:
-        print(f"Well done, {username}! You are well on your way to proving yourself as a hero of Hyrule.")
-        print(f"Your final score is: {score}.")
+        slow_print(f"Well done, {username}! You are well on your way to proving yourself as a hero of Hyrule.")
+        slow_print(f"Your final score is: {score}.")
         update_scoreboard()
         play_again()
     elif score >= 5:
-        print(f"Not bad, {username}. With a little more exploration you will be well on your way to proving yourself as a hero of Hyrule!")
-        print(f"Your final score is: {score}.")
+        slow_print(f"Not bad, {username}. With a little more exploration you will be well on your way to proving yourself as a hero of Hyrule!")
+        slow_print(f"Your final score is: {score}.")
         update_scoreboard()
         play_again()
     elif score < 5:
-        print(f"Thank you for playing, {username}.")
-        print(f"Your final score is: {score}.")
-        print("We hope that you see this as an opportunity to delve deeper into the vast kingdom of Hyrule!")
+        slow_print(f"Thank you for playing, {username}.")
+        slow_print(f"Your final score is: {score}.")
+        slow_print("We hope that you see this as an opportunity to delve deeper into the vast kingdom of Hyrule!")
         update_scoreboard()
         play_again()
 
@@ -215,12 +216,12 @@ def update_scoreboard():
     """
     Appends the username & final score to the scoreboard worksheet.
     """
-    print("Updating scoreboard...")
+    slow_print("Updating scoreboard...")
     global username
     global score
     scoreboard_data = (username, score)
     scores.append_row(scoreboard_data)
-    print("Scoreboard updated.")
+    slow_print("Scoreboard updated.")
 
 
 def reset_quiz():
@@ -240,9 +241,9 @@ def play_again():
     If they don't want to play again, they will be redirected to the title screen. 
     A ValueError will be thrown if the user enters a value that is not 'Y' or 'N'. 
     """
-    print("Would you like to play again?")
-    print("Y - Play again")
-    print("N - Exit quiz\n")
+    slow_print("Would you like to play again?")
+    slow_print("Y - Play again")
+    slow_print("N - Exit quiz\n")
     while True:
         try:
             user_input = input("Enter your choice (Y/N): ").capitalize()
@@ -269,6 +270,17 @@ def clear_terminal():
     Clears the terminal
     """
     os.system('clear')
+
+def slow_print(s): 
+    """
+    Slowly prints each character at a speed of 0.04s. 
+    Code borrowed from gnuton on GitHub. 
+    Link to the source code within the Credits section of the README file.
+    """ 
+    for c in s + '\n':
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(0.04)
 
 
 def main():
