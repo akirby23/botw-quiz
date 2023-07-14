@@ -106,6 +106,10 @@ def load_title_screen():
 
 
 def get_username():
+    """
+    Prompts the user to enter their name. 
+    Throws a ValueError if the name is less than 2 characters or more than 10 characters
+    """
     print("Greetings, Hylian!\n")
     while True:
         try:
@@ -122,6 +126,11 @@ def get_username():
     
 
 def load_main_menu():
+    """
+    Loads the main menu, allowing the user to start the game, view the
+    scoreboard or exit the game.
+    Throws a ValueError if the user submits a value that is not 1, 2 or 3.  
+    """
     clear_terminal()
     print("Please select one of the following options:\n")
     print("1. Start Quiz")
@@ -146,6 +155,12 @@ def load_main_menu():
                   
 
 def start_quiz():
+    """
+    Prints the quiz instructions to the terminal. 
+    Prompts the user to confirm whether or not they are ready to proceed with the
+    quiz. 
+    Throws a ValueError if the user enters a value that is not 'Y' or 'N'
+    """
     clear_terminal()
     print("This multiple-choice quiz will test your knowledge on the iconic action-adventure game The Legend of Zelda: Breath of the Wild.\n")
     print("Instructions:\n")
@@ -177,6 +192,16 @@ def start_quiz():
         
 
 def run_quiz():
+    """
+    Loops through the questions stored in QUIZ_QUESTIONS and answers stored in 
+    QUIZ_ANSWERS and prints them to the terminal. 
+    The user is prompted to enter 'A', 'B', 'C' or 'D' to select their answer. 
+    If the user enters a value other than the values above, a ValueError will be thrown.
+    Answers are checked. 
+    'score' is incremented for every correct answer submitted by the user. 
+    'questions_answer' is incremented for every question answered.
+    The quiz will finish once all 10 questions have been answered.
+    """
     global score
     global questions_answered
     clear_terminal()
@@ -200,6 +225,11 @@ def run_quiz():
 
 
 def finish_quiz():
+    """
+    Congratulations/commiserations given depending on the user's score. 
+    Username and final scores are updated on the scoreboard worksheet. 
+    User is prompted to confirm whether or not they want to play again.
+    """
     global score
     global questions_answered
     clear_terminal()
@@ -249,6 +279,9 @@ def load_scoreboard():
 
 
 def update_scoreboard():
+    """
+    Appends the username & final score to the scoreboard worksheet.
+    """
     print("Updating scoreboard...")
     global username
     global score
@@ -258,6 +291,9 @@ def update_scoreboard():
 
 
 def reset_quiz():
+    """
+    Sets the score & questions_answered variables back to 0
+    """
     global score
     global questions_answered
     score = 0
@@ -265,6 +301,12 @@ def reset_quiz():
 
 
 def play_again():
+    """
+    Prompts the user to confirm whether or not they want to play again. 
+    If they do want to play again, the game will be reset and the quiz will run again. 
+    If they don't want to play again, they will be redirected to the title screen. 
+    A ValueError will be thrown if the user enters a value that is not 'Y' or 'N'. 
+    """
     print("Would you like to play again?")
     print("Y - Play again")
     print("N - Exit quiz\n")
@@ -290,10 +332,16 @@ def play_again():
       
         
 def clear_terminal():
+    """
+    Clears the terminal
+    """
     os.system('clear')
 
 
 def main():
+    """
+    Runs the main functions
+    """
     load_title_screen()
 
 main()
