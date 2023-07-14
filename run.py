@@ -193,6 +193,28 @@ def run_quiz():
             print(f"Not quite! The correct answer was option: {a}.")
             questions_answered += 1
             continue
+    while questions_answered == 10:
+        finish_quiz()
+        break
+
+
+def finish_quiz():
+    global score
+    global questions_answered
+    clear_terminal()
+    if score == 10:
+        print(f"Congratulations, {username}! You have well and truly proven yourself as a hero of Hyrule!")
+        print(f"Your final score is: {score}.")
+    elif score >= 7:
+        print(f"Well done, {username}! You are well on your way to proving yourself as a hero of Hyrule.")
+        print(f"Your final score is: {score}.")
+    elif score >= 5:
+        print(f"Not bad, {username}. With a little more exploration you will be well on your way to proving yourself as a hero of Hyrule!")
+        print(f"Your final score is: {score}.")
+    elif score < 5:
+        print(f"Thank you for playing, {username}.")
+        print(f"Your final score is: {score}.")
+        print("We hope that you see this as an opportunity to delve deeper into the vast kingdom of Hyrule!")
 
 
 def load_scoreboard():
