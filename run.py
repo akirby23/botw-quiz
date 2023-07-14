@@ -48,8 +48,10 @@ def get_username():
             username = input("Please enter your name: \n").capitalize()
             if len(username) < 2 or len(username) > 10:
                 raise ValueError("Username needs to be between 2 and 10 characters.")
-            else: 
+            else:
+                clear_terminal()
                 print(f"Welcome, {username}!\n")
+                time.sleep(3)
                 load_main_menu()
                 break
         except ValueError as e:
