@@ -277,7 +277,10 @@ def clear_terminal():
     """
     Clears the terminal
     """
-    os.system('clear')
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 def slow_print(s): 
     """
