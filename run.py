@@ -1,6 +1,7 @@
 import gspread
 import os
 import tabulate
+import time
 from google.oauth2.service_account import Credentials
 from art import logo
 from questions import QUIZ_QUESTIONS, QUIZ_ANSWERS
@@ -29,10 +30,10 @@ questions_answered = 0
 
 def load_title_screen():
     print(logo)
-    title_screen_input = input("Press ENTER to begin")
-    if title_screen_input == "":
-        clear_terminal()
-        get_username()
+    print("Loading...")
+    time.sleep(5)
+    clear_terminal()
+    get_username()
 
 
 def get_username():
