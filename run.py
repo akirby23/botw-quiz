@@ -142,7 +142,7 @@ def run_quiz():
     for (q, a), ans in zip(QUIZ_QUESTIONS.items(), QUIZ_ANSWERS):
         correct_answer = a
         slow_print(q)
-        slow_print(*ans, sep="\n")
+        print(*ans, sep="\n")
         user_answer = input("Your answer: ").capitalize()
         if user_answer == correct_answer:
             print("Correct!")
@@ -168,25 +168,33 @@ def finish_quiz():
     global questions_answered
     clear_terminal()
     if score == 10:
-        slow_print(f"Congratulations, {username}! You have well and truly proven yourself as a hero of Hyrule!")
-        slow_print(f"Your final score is: {score}.")
+        slow_print(f"Congratulations, {username}! You have well and truly proven yourself as a hero of Hyrule!\n")
+        slow_print(f"Your final score is: {score}.\n")
         update_scoreboard()
+        time.sleep(3)
+        clear_terminal()
         play_again()
     elif score >= 7:
-        slow_print(f"Well done, {username}! You are well on your way to proving yourself as a hero of Hyrule.")
-        slow_print(f"Your final score is: {score}.")
+        slow_print(f"Well done, {username}! You are well on your way to proving yourself as a hero of Hyrule.\n")
+        slow_print(f"Your final score is: {score}.\n")
         update_scoreboard()
+        time.sleep(3)
+        clear_terminal()
         play_again()
     elif score >= 5:
-        slow_print(f"Not bad, {username}. With a little more exploration you will be well on your way to proving yourself as a hero of Hyrule!")
-        slow_print(f"Your final score is: {score}.")
+        slow_print(f"Not bad, {username}. With a little more exploration you will be well on your way to proving yourself as a hero of Hyrule!\n")
+        slow_print(f"Your final score is: {score}.\n")
         update_scoreboard()
+        time.sleep(3)
+        clear_terminal()
         play_again()
     elif score < 5:
-        slow_print(f"Thank you for playing, {username}.")
-        slow_print(f"Your final score is: {score}.")
-        slow_print("We hope that you see this as an opportunity to delve deeper into the vast kingdom of Hyrule!")
+        slow_print(f"Thank you for playing, {username}.\n")
+        slow_print(f"Your final score is: {score}.\n")
+        slow_print("We hope that you see this as an opportunity to delve deeper into the vast kingdom of Hyrule!\n")
         update_scoreboard()
+        time.sleep(3)
+        clear_terminal()
         play_again()
 
 def load_scoreboard():
