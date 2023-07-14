@@ -4,7 +4,7 @@ import tabulate
 import time
 import sys
 from google.oauth2.service_account import Credentials
-from art import logo
+from art import logo, main_menu, scoreboard, instructions, triforce
 from questions import QUIZ_QUESTIONS, QUIZ_ANSWERS
 
 SCOPE = [
@@ -66,6 +66,7 @@ def load_main_menu():
     Throws a ValueError if the user submits a value that is not 1, 2 or 3.  
     """
     clear_terminal()
+    print(main_menu)
     slow_print("Please select one of the following options:\n")
     slow_print("1. Start Quiz")
     slow_print("2. Scoreboard")
@@ -96,8 +97,8 @@ def start_quiz():
     Throws a ValueError if the user enters a value that is not 'Y' or 'N'
     """
     clear_terminal()
+    print(instructions)
     print("This multiple-choice quiz will test your knowledge on the iconic action-adventure game The Legend of Zelda: Breath of the Wild.\n")
-    print("Instructions:\n")
     print("1. There are 10 questions in total. Each question will have 4 potential answers.")
     print("2. To choose your answer, type the corresponding letter (a, b, c, d) for the option you believe to be correct and click enter.")
     print("3. You can choose one option per question. Once you submit your answer, you cannot change it.")
@@ -203,6 +204,7 @@ def load_scoreboard():
     Written with the help of Stack Overflow
     """
     clear_terminal()
+    print(scoreboard)
     header = scores_dict[0].keys()
     rows = [y.values() for y in scores_dict]
     print(tabulate.tabulate(rows, header, tablefmt='rst'))
@@ -294,6 +296,7 @@ def slow_print(s):
 
 def exit_quiz():
     clear_terminal()
+    print(triforce)
     slow_print(f"Thank you for playing, {username}!\n")
     slow_print("Exiting quiz...\n")
     time.sleep(1)
