@@ -80,7 +80,7 @@ def load_main_menu():
                 load_scoreboard()
                 break
             elif menu_choice == 3:
-                print("Exiting...")
+                exit_quiz()
                 break
             else:
                 raise ValueError("Please enter a number between 1-3.")
@@ -249,7 +249,7 @@ def play_again():
     If they don't want to play again, they will be redirected to the title screen. 
     A ValueError will be thrown if the user enters a value that is not 'Y' or 'N'. 
     """
-    slow_print("Would you like to play again?")
+    slow_print("Would you like to play again?\n")
     slow_print("Y - Play again")
     slow_print("N - Exit quiz\n")
     while True:
@@ -263,9 +263,7 @@ def play_again():
                 break
             elif user_input == "N":
                 clear_terminal()
-                print("Thank you for playing!")
-                reset_quiz()
-                load_title_screen()
+                exit_quiz()
                 break
             else:
                 raise ValueError("Please select 'Y' or 'N' to continue.")
@@ -292,6 +290,15 @@ def slow_print(s):
         sys.stdout.write(c)
         sys.stdout.flush()
         time.sleep(0.04)
+
+
+def exit_quiz():
+    clear_terminal()
+    slow_print(f"Thank you for playing, {username}!\n")
+    slow_print("Exiting quiz...\n")
+    time.sleep(1)
+    slow_print("Click 'Run Quiz' to play again.")
+
 
 
 def main():
