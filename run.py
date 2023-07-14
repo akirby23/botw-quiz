@@ -115,6 +115,7 @@ def get_username():
                 raise ValueError("Username needs to be between 2 and 10 characters.")
             else: 
                 print(f"Welcome, {username}!\n")
+                load_main_menu()
                 break
         except ValueError as e:
             print(f"Invalid input: {e} Please try again.")
@@ -205,17 +206,20 @@ def finish_quiz():
     if score == 10:
         print(f"Congratulations, {username}! You have well and truly proven yourself as a hero of Hyrule!")
         print(f"Your final score is: {score}.")
+        play_again()
     elif score >= 7:
         print(f"Well done, {username}! You are well on your way to proving yourself as a hero of Hyrule.")
         print(f"Your final score is: {score}.")
+        play_again()
     elif score >= 5:
         print(f"Not bad, {username}. With a little more exploration you will be well on your way to proving yourself as a hero of Hyrule!")
         print(f"Your final score is: {score}.")
+        play_again()
     elif score < 5:
         print(f"Thank you for playing, {username}.")
         print(f"Your final score is: {score}.")
         print("We hope that you see this as an opportunity to delve deeper into the vast kingdom of Hyrule!")
-
+        play_again()
 
 def load_scoreboard():
     """
@@ -238,7 +242,39 @@ def load_scoreboard():
                 break
         except ValueError as e:
             print(f"Invalid input: {e}, please try again.")
-        
+
+
+def reset_quiz():
+    global score
+    global questions_answered
+    score = 0
+    questions_answered = 0
+
+
+def play_again():
+    print("Would you like to play again?")
+    print("Y - Play again")
+    print("N - Exit quiz\n")
+    while True:
+        try:
+            user_input = input("Enter your choice (Y/N): ").capitalize()
+            if user_input == "Y":
+                clear_terminal()
+                print("Restarting quiz...")
+                reset_quiz()
+                run_quiz()
+                break
+            elif user_input == "N":
+                clear_terminal()
+                print("Thank you for playing!")
+                reset_quiz()
+                load_title_screen()
+                break
+            else:
+                raise ValueError("Please select 'Y' or 'N' to continue.")
+        except ValueError as e:
+            print(f"Invalid input: {e}")
+      
         
 def clear_terminal():
     os.system('clear')
@@ -246,6 +282,5 @@ def clear_terminal():
 
 def main():
     load_title_screen()
-    load_main_menu()
 
 main()
