@@ -24,7 +24,24 @@ Once all 10 questions have been answered, the final score will be provided to th
 
 ### Languages
 
+- Python was used to program the quiz.
+- HTML & CSS were used to make adjustments to the Code Institute mock terminal for Heroku.
+
 ### Frameworks, Libraries & Programs
+
+- [CodeAnywhere](https://app.codeanywhere.com/): to write the code.
+- [Git](https://git-scm.com/): to commit & push the code to GitHub for version control.
+- [GitHub](https://github.com/): to store the code in its repository.
+- [Heroku](https://id.heroku.com/login): to deploy the app.
+- [Imgur](https://imgur.com/): to host the background image. 
+- [ImageColorPicker](https://imagecolorpicker.com/en): used to generate colours from the background image for the “RUN QUIZ” button.
+- [gspread](https://docs.gspread.org/en/v5.10.0/): to access & manipulate the data stored in the [botw-quiz](https://docs.google.com/spreadsheets/d/1nyocvizezU-y-m0PedQcAAGDziM1yjVJAMwC1k_DBCg/edit#gid=0) Google Sheet.
+- [os](https://docs.python.org/3/library/os.html): to create a function that clears the terminal once the function is called for better readability.
+- [tabulate](https://pypi.org/project/tabulate/): to print the scoreboard data to the terminal in a table format for aesthetic and readability purposes. 
+- [time](https://docs.python.org/3/library/time.html): to delay functions/actions from being executed to prevent the user from being overloaded with information.
+- [sys](https://docs.python.org/3/library/sys.html): to allow for text to be printed slowly once the slow_print() function is called. For better readability & to emulate updates within the program. 
+- [colorama](https://pypi.org/project/colorama/): to print coloured text to the terminal for aesthetic purposes and to enhance the visual feedback once questions are answered correctly/incorrectly. 
+
 
 ## Testing
 
