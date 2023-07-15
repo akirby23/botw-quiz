@@ -3,6 +3,7 @@ import os
 import tabulate
 import time
 import sys
+import colorama
 from google.oauth2.service_account import Credentials
 from art import logo, main_menu, scoreboard, instructions, triforce
 from questions import QUIZ_QUESTIONS, QUIZ_ANSWERS
