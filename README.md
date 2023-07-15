@@ -20,6 +20,16 @@
 
 ## Deployment
 
+This project was deployed to Heroku using Code Institute's mock terminal.
+
+- Steps for deployment: 
+    - Fork or clone this repository.
+    - Create a new Heroku app.
+    - Set a buildback to Python and NodeJS in that order.
+    - Set another buildback to Port and 8000.
+    - Link the Heroku app to the repository.
+    - Click on “Deploy”.
+
 ## Credits
 
 ### Code
