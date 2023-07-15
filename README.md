@@ -2,7 +2,17 @@
 
 ## Description 
 
+Welcome to botw-quiz, a Python terminal based multiple choice quiz inspired by the iconic Nintendo Switch game, The Legend of Zelda: Breath of the Wild!
+
 ## How to play
+
+The quiz itself consists of 10 questions in total based on the lore & gameplay mechanics of The Legend of Zelda: Breath of the Wild. 
+
+The user will have a choice of 4 answers for each question. 
+
+Each correct answer equates to 1 point towards the final score.
+
+Once all 10 questions have been answered, the final score will be provided to the user, and the user’s name & final score will be added to the scoreboard, which can be accessed via the main menu. 
 
 ## Features
 
