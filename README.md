@@ -18,6 +18,8 @@
 
 ## Testing
 
+The testing details are documented within the [TESTING.md](TESTING.md) file. 
+
 ## Deployment
 
 This project was deployed to Heroku using Code Institute's mock terminal.
