@@ -1,3 +1,7 @@
+from colorama import init, Fore, Style
+from google.oauth2.service_account import Credentials
+from art import logo, main_menu, scoreboard, instructions, triforce
+from questions import QUIZ_QUESTIONS, QUIZ_ANSWERS
 import gspread
 import os
 import tabulate
@@ -5,10 +9,7 @@ import time
 import sys
 import colorama
 colorama.init(autoreset = True)
-from colorama import init, Fore, Style
-from google.oauth2.service_account import Credentials
-from art import logo, main_menu, scoreboard, instructions, triforce
-from questions import QUIZ_QUESTIONS, QUIZ_ANSWERS
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -26,7 +27,7 @@ SHEET = GSPREAD_CLIENT.open('botw_quiz')
 scores = SHEET.worksheet("scoreboard")
 scores_dict = scores.get_all_records()
 
-# Quiz variables 
+# Quiz variables
 username = ""
 score = 0
 questions_answered = 0
@@ -34,7 +35,7 @@ questions_answered = 0
 
 def load_title_screen():
     """
-    Prints the logo to the terminal. 
+    Prints the logo to the terminal.
     Automatically loads the main menu after 5 seconds.
     """
     print(Fore.YELLOW + Style.DIM + logo)
@@ -50,7 +51,7 @@ def load_title_screen():
 
 def get_username():
     """
-    Prompts the user to enter their name. 
+    Prompts the user to enter their name.
     Throws a ValueError if the name is less than 2 characters or more than 10 characters
     """
     slow_print("Greetings, Hylian!\n")
@@ -68,13 +69,13 @@ def get_username():
                 break
         except ValueError as e:
             print(f"Invalid input: {e} Please try again.")
-    
+
 
 def load_main_menu():
     """
     Loads the main menu, allowing the user to start the game, view the
     scoreboard or exit the game.
-    Throws a ValueError if the user submits a value that is not 1, 2 or 3.  
+    Throws a ValueError if the user submits a value that is not 1, 2 or 3.
     """
     clear_terminal()
     print(main_menu)
@@ -98,13 +99,13 @@ def load_main_menu():
                 raise ValueError("Please enter a number between 1-3.")
         except ValueError as e:
             print(f"Invalid input: {e}")
-                  
+
 
 def start_quiz():
     """
-    Prints the quiz instructions to the terminal. 
+    Prints the quiz instructions to the terminal.
     Prompts the user to confirm whether or not they are ready to proceed with the
-    quiz. 
+    quiz.
     Throws a ValueError if the user enters a value that is not 'Y' or 'N'
     """
     clear_terminal()
@@ -135,16 +136,16 @@ def start_quiz():
                 continue
         except ValueError as e:
             print(f"Invalid input: {e}, please try again.")
-        
+
 
 def run_quiz():
     """
-    Loops through the questions stored in QUIZ_QUESTIONS and answers stored in 
-    QUIZ_ANSWERS and prints them to the terminal. 
-    The user is prompted to enter 'A', 'B', 'C' or 'D' to select their answer. 
+    Loops through the questions stored in QUIZ_QUESTIONS and answers stored in
+    QUIZ_ANSWERS and prints them to the terminal.
+    The user is prompted to enter 'A', 'B', 'C' or 'D' to select their answer.
     If the user enters a value other than the values above, a ValueError will be thrown.
-    Answers are checked. 
-    'score' is incremented for every correct answer submitted by the user. 
+    Answers are checked.
+    'score' is incremented for every correct answer submitted by the user.
     'questions_answer' is incremented for every question answered.
     The quiz will finish once all 10 questions have been answered.
     """
@@ -186,8 +187,8 @@ def run_quiz():
 
 def finish_quiz():
     """
-    Congratulations/commiserations given depending on the user's score. 
-    Username and final scores are updated on the scoreboard worksheet. 
+    Congratulations/commiserations given depending on the user's score.
+    Username and final scores are updated on the scoreboard worksheet.
     User is prompted to confirm whether or not they want to play again.
     """
     global score
@@ -223,6 +224,7 @@ def finish_quiz():
         clear_terminal()
         play_again()
 
+
 def load_scoreboard():
     """
     Print user names & scores in the form of a table
@@ -241,7 +243,7 @@ def load_scoreboard():
                 continue
             else:
                 clear_terminal()
-                load_main_menu() 
+                load_main_menu()
                 break
         except ValueError as e:
             print(f"Invalid input: {e}, please try again.")
@@ -271,10 +273,10 @@ def reset_quiz():
 
 def play_again():
     """
-    Prompts the user to confirm whether or not they want to play again. 
-    If they do want to play again, the game will be reset and the quiz will run again. 
-    If they don't want to play again, they will be redirected to the title screen. 
-    A ValueError will be thrown if the user enters a value that is not 'Y' or 'N'. 
+    Prompts the user to confirm whether or not they want to play again.
+    If they do want to play again, the game will be reset and the quiz will run again.
+    If they don't want to play again, they will be redirected to the title screen.
+    A ValueError will be thrown if the user enters a value that is not 'Y' or 'N'.
     """
     slow_print("Would you like to play again?\n")
     slow_print("Y - Play again")
@@ -296,8 +298,8 @@ def play_again():
                 raise ValueError("Please select 'Y' or 'N' to continue.")
         except ValueError as e:
             print(f"Invalid input: {e}")
-      
-        
+
+
 def clear_terminal():
     """
     Clears the terminal
@@ -307,12 +309,13 @@ def clear_terminal():
     else:
         os.system('clear')
 
-def slow_print(s): 
+
+def slow_print(s):
     """
-    Prints each character at a speed of 0.04s. 
-    Code borrowed from gnuton on GitHub. 
+    Prints each character at a speed of 0.04s.
+    Code borrowed from gnuton on GitHub.
     Link to the source code is within the Credits section of the README file.
-    """ 
+    """
     for c in s + '\n':
         sys.stdout.write(c)
         sys.stdout.flush()
@@ -328,13 +331,11 @@ def exit_quiz():
     slow_print("Click 'Run Quiz' to play again.")
 
 
-
 def main():
     """
     Runs the main functions
     """
     load_title_screen()
 
+
 main()
-
-
