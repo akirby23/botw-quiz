@@ -4,6 +4,8 @@ import tabulate
 import time
 import sys
 import colorama
+colorama.init(autoreset = True)
+from colorama import init, Fore, Style
 from google.oauth2.service_account import Credentials
 from art import logo, main_menu, scoreboard, instructions, triforce
 from questions import QUIZ_QUESTIONS, QUIZ_ANSWERS
@@ -31,7 +33,7 @@ questions_answered = 0
 
 
 def load_title_screen():
-    print(logo)
+    print(Fore.YELLOW + Style.DIM + logo)
     print("Loading...")
     time.sleep(5)
     clear_terminal()
@@ -285,7 +287,7 @@ def clear_terminal():
 
 def slow_print(s): 
     """
-    Slowly prints each character at a speed of 0.04s. 
+    Prints each character at a speed of 0.04s. 
     Code borrowed from gnuton on GitHub. 
     Link to the source code within the Credits section of the README file.
     """ 
@@ -297,7 +299,7 @@ def slow_print(s):
 
 def exit_quiz():
     clear_terminal()
-    print(triforce)
+    print(Fore.YELLOW + Style.DIM + triforce)
     slow_print(f"Thank you for playing, {username}!\n")
     slow_print("Exiting quiz...\n")
     time.sleep(1)
