@@ -33,8 +33,16 @@ questions_answered = 0
 
 
 def load_title_screen():
+    """
+    Prints the logo to the terminal. 
+    Automatically loads the main menu after 5 seconds.
+    """
     print(Fore.YELLOW + Style.DIM + logo)
-    print("Loading...")
+    print()
+    print()
+    text = "Loading..."
+    centered_text = text.center(40)
+    slow_print(centered_text)
     time.sleep(5)
     clear_terminal()
     get_username()
