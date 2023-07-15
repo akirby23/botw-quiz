@@ -149,7 +149,7 @@ def run_quiz():
         print(*ans, sep="\n")
         user_answer = input("Your answer: ").capitalize()
         if user_answer == correct_answer:
-            print("Correct!")
+            print(Fore.GREEN + "Correct!")
             score += 1
             questions_answered += 1
             continue
