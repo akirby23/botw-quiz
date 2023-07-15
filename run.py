@@ -155,12 +155,20 @@ def run_quiz():
         correct_answer = a
         slow_print(q)
         print(*ans, sep="\n")
-        user_answer = input("Your answer: ").capitalize()
-        if user_answer == correct_answer:
+        while True:
+            try:
+                user_answer = input("Your answer (A, B, C or D): ").capitalize()
+                if user_answer in ['A', 'B', 'C', 'D']:
+                    break
+                else:
+                    raise ValueError("'A', 'B', 'C' or 'D' required")
+            except ValueError as e:
+                print(f"Invalid input: {e}, please try again.")
+        while user_answer == correct_answer:
             print(Fore.GREEN + "Correct!")
             score += 1
             questions_answered += 1
-            continue
+            break
         else:
             print(Fore.RED + f"Not quite! The correct answer was option: {a}.")
             questions_answered += 1
@@ -297,7 +305,7 @@ def slow_print(s):
     """
     Prints each character at a speed of 0.04s. 
     Code borrowed from gnuton on GitHub. 
-    Link to the source code within the Credits section of the README file.
+    Link to the source code is within the Credits section of the README file.
     """ 
     for c in s + '\n':
         sys.stdout.write(c)
@@ -321,5 +329,6 @@ def main():
     """
     load_title_screen()
 
-main()
+# main()
+run_quiz()
 
