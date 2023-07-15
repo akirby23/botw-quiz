@@ -154,7 +154,7 @@ def run_quiz():
             questions_answered += 1
             continue
         else:
-            print(f"Not quite! The correct answer was option: {a}.")
+            print(Fore.RED + f"Not quite! The correct answer was option: {a}.")
             questions_answered += 1
             continue
     while questions_answered == 10:
