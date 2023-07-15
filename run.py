@@ -8,7 +8,7 @@ import tabulate
 import time
 import sys
 import colorama
-colorama.init(autoreset = True)
+colorama.init(autoreset=True)
 
 
 SCOPE = [
@@ -52,7 +52,8 @@ def load_title_screen():
 def get_username():
     """
     Prompts the user to enter their name.
-    Throws a ValueError if the name is less than 2 characters or more than 10 characters
+    Throws a ValueError if the name is less than 2 characters
+    or more than 10 characters
     """
     slow_print("Greetings, Hylian!\n")
     while True:
@@ -60,7 +61,9 @@ def get_username():
             global username
             username = input("Please enter your name: \n").capitalize()
             if len(username) < 2 or len(username) > 10:
-                raise ValueError("Username needs to be between 2 and 10 characters.")
+                raise ValueError(
+                    "Username needs to be between 2 and 10 characters."
+                    )
             else:
                 clear_terminal()
                 print(f"Welcome, {username}!\n")
@@ -104,19 +107,27 @@ def load_main_menu():
 def start_quiz():
     """
     Prints the quiz instructions to the terminal.
-    Prompts the user to confirm whether or not they are ready to proceed with the
-    quiz.
+    Prompts the user to confirm whether or not they are ready to proceed
+    with the quiz.
     Throws a ValueError if the user enters a value that is not 'Y' or 'N'
     """
     clear_terminal()
     print(instructions)
-    print("This multiple-choice quiz will test your knowledge on the iconic action-adventure game The Legend of Zelda: Breath of the Wild.\n")
-    print("1. There are 10 questions in total. Each question will have 4 potential answers.")
-    print("2. To choose your answer, type the corresponding letter (a, b, c, d) for the option you believe to be correct and click enter.")
-    print("3. You can choose one option per question. Once you submit your answer, you cannot change it.")
+    print("This multiple-choice quiz will test your knowledge on the iconic \
+    action-adventure game The Legend of Zelda: Breath of the Wild.\n")
+    print("1. There are 10 questions in total. \
+    Each question will have 4 potential answers.")
+    print("2. To choose your answer, type the corresponding letter \
+    (a, b, c, d) for the option you believe to be correct and click enter.")
+    print("3. You can choose one option per question. \
+    Once you submit your answer, you cannot change it.")
     print("4. You will earn 1 point for each correct answer.")
-    print("5. Once you have answered all 10 questions, your final score will be revealed.\n")
-    print("Important note: This quiz may contain spoilers relating to the gameplay & storyline of The Legend of Zelda: Breath of the Wild. If you want to experience the game without spoilers, it may be best to avoid the quiz for now.\n")
+    print("5. Once you have answered all 10 questions, \
+    your final score will be revealed.\n")
+    print("Important note: This quiz may contain spoilers relating to the \
+    gameplay & storyline of The Legend of Zelda: Breath of the Wild. \
+    If you want to experience the game without spoilers, \
+    it may be best to avoid the quiz for now.\n")
     slow_print("Are you ready to prove yourself as a hero of Hyrule?")
     slow_print("Y - Start Quiz")
     slow_print("N - Return to Main Menu\n")
@@ -143,7 +154,8 @@ def run_quiz():
     Loops through the questions stored in QUIZ_QUESTIONS and answers stored in
     QUIZ_ANSWERS and prints them to the terminal.
     The user is prompted to enter 'A', 'B', 'C' or 'D' to select their answer.
-    If the user enters a value other than the values above, a ValueError will be thrown.
+    If the user enters a value other than the values above,
+    a ValueError will be thrown.
     Answers are checked.
     'score' is incremented for every correct answer submitted by the user.
     'questions_answer' is incremented for every question answered.
@@ -158,7 +170,8 @@ def run_quiz():
         print(*ans, sep="\n")
         while True:
             try:
-                user_answer = input("Your answer (A, B, C or D): ").capitalize()
+                user_answer = input(
+                    "Your answer (A, B, C or D): ").capitalize()
                 if user_answer in ['A', 'B', 'C', 'D']:
                     break
                 else:
@@ -195,21 +208,25 @@ def finish_quiz():
     global questions_answered
     clear_terminal()
     if score == 10:
-        slow_print(f"Congratulations, {username}! You have well and truly proven yourself as a hero of Hyrule!\n")
+        slow_print(f"Congratulations, {username}! You have well and truly \
+        proven yourself as a hero of Hyrule!\n")
         slow_print(f"Your final score is: {score}.\n")
         update_scoreboard()
         time.sleep(3)
         clear_terminal()
         play_again()
     elif score >= 7:
-        slow_print(f"Well done, {username}! You are well on your way to proving yourself as a hero of Hyrule.\n")
+        slow_print(f"Well done, {username}! You are well on your way to \
+        proving yourself as a hero of Hyrule.\n")
         slow_print(f"Your final score is: {score}.\n")
         update_scoreboard()
         time.sleep(3)
         clear_terminal()
         play_again()
     elif score >= 5:
-        slow_print(f"Not bad, {username}. With a little more exploration you will be well on your way to proving yourself as a hero of Hyrule!\n")
+        slow_print(f"Not bad, {username}. With a little more exploration \
+        you will be well on your way to proving yourself as a hero \
+        of Hyrule!\n")
         slow_print(f"Your final score is: {score}.\n")
         update_scoreboard()
         time.sleep(3)
@@ -218,7 +235,8 @@ def finish_quiz():
     elif score < 5:
         slow_print(f"Thank you for playing, {username}.\n")
         slow_print(f"Your final score is: {score}.\n")
-        slow_print("We hope that you see this as an opportunity to delve deeper into the vast kingdom of Hyrule!\n")
+        slow_print("We hope that you see this as an opportunity to \
+        delve deeper into the vast kingdom of Hyrule!\n")
         update_scoreboard()
         time.sleep(3)
         clear_terminal()
@@ -239,7 +257,9 @@ def load_scoreboard():
         try:
             user_input = input("Enter 'Q' to return to the main menu: ")
             if user_input != "q":
-                raise ValueError("'Q' needs to be entered to return to the main menu")
+                raise ValueError(
+                    "'Q' needs to be entered to return to the main menu"
+                    )
                 continue
             else:
                 clear_terminal()
@@ -274,9 +294,12 @@ def reset_quiz():
 def play_again():
     """
     Prompts the user to confirm whether or not they want to play again.
-    If they do want to play again, the game will be reset and the quiz will run again.
-    If they don't want to play again, they will be redirected to the title screen.
-    A ValueError will be thrown if the user enters a value that is not 'Y' or 'N'.
+    If they do want to play again, the game will be reset and the quiz
+    will run again.
+    If they don't want to play again, they will be redirected to the
+    title screen.
+    A ValueError will be thrown if the user enters a value that is
+    not 'Y' or 'N'.
     """
     slow_print("Would you like to play again?\n")
     slow_print("Y - Play again")
