@@ -165,13 +165,19 @@ def run_quiz():
             except ValueError as e:
                 print(f"Invalid input: {e}, please try again.")
         while user_answer == correct_answer:
+            print()
             print(Fore.GREEN + "Correct!")
             score += 1
             questions_answered += 1
+            time.sleep(2)
+            clear_terminal()
             break
         else:
+            print()
             print(Fore.RED + f"Not quite! The correct answer was option: {a}.")
             questions_answered += 1
+            time.sleep(2)
+            clear_terminal()
             continue
     while questions_answered == 10:
         finish_quiz()
@@ -329,6 +335,6 @@ def main():
     """
     load_title_screen()
 
-# main()
-run_quiz()
+main()
+
 
