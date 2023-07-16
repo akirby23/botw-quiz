@@ -90,7 +90,7 @@ def load_main_menu():
         try:
             menu_choice = int(input("Enter your choice (1-3): "))
             if menu_choice == 1:
-                start_quiz()
+                load_instructions_page()
                 break
             elif menu_choice == 2:
                 load_scoreboard()
@@ -104,7 +104,7 @@ def load_main_menu():
             print(f"Invalid input: Please enter a number between 1-3.")
 
 
-def start_quiz():
+def load_instructions_page():
     """
     Prints the quiz instructions to the terminal.
     Prompts the user to confirm whether or not they are ready to proceed
