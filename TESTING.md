@@ -1,5 +1,7 @@
 # Testing - The Legend of Zelda: Breath of the Wild Quiz 
 
+[Return to README.md](README.md)
+
 ## Manual Testing
 
 The following scenarios were tested locally on CodeAnywhere and on the deployed Heroku app. 
