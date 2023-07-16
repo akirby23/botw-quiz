@@ -42,7 +42,7 @@ def load_title_screen():
     print()
     print()
     text = "Loading..."
-    centered_text = text.center(40)
+    centered_text = text.center(65)
     slow_print(centered_text)
     time.sleep(5)
     clear_terminal()
@@ -59,14 +59,14 @@ def get_username():
     while True:
         try:
             global username
-            username = input("Please enter your name: \n").capitalize()
+            username = input("Please enter your name: ").capitalize()
             if len(username) < 2 or len(username) > 10:
                 raise ValueError(
                     "Username needs to be between 2 and 10 characters."
                     )
             else:
                 clear_terminal()
-                print(f"Welcome, {username}!\n")
+                slow_print(f"Welcome, {username}!\n")
                 time.sleep(3)
                 load_main_menu()
                 break
