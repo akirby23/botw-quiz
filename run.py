@@ -67,6 +67,8 @@ def get_username():
             else:
                 clear_terminal()
                 slow_print(f"Welcome, {username}!\n")
+                time.sleep(1)
+                slow_print("Loading main menu...")
                 time.sleep(3)
                 load_main_menu()
                 break
@@ -130,7 +132,9 @@ def load_instructions_page():
         "3. You can choose one option per question. "
         "Once you submit your answer, you cannot change it."
         )
-    print("4. You will earn 1 point for each correct answer.")
+    print(
+        "4. You will earn 1 point for each correct answer."
+        )
     print(
         "5. Once you have answered all 10 questions, "
         "your final score will be revealed.\n"
@@ -221,35 +225,55 @@ def finish_quiz():
     global questions_answered
     clear_terminal()
     if score == 10:
-        slow_print(f"Congratulations, {username}! You have well and truly \
-        proven yourself as a hero of Hyrule!\n")
-        slow_print(f"Your final score is: {score}.\n")
+        slow_print(
+            f"Congratulations, {username}! "
+            "You have well and truly "
+            "proven yourself as a hero of Hyrule!\n"
+            )
+        slow_print(
+            f"Your final score is: {score}.\n"
+            )
         update_scoreboard()
         time.sleep(3)
         clear_terminal()
         play_again()
     elif score >= 7:
-        slow_print(f"Well done, {username}! You are well on your way to \
-        proving yourself as a hero of Hyrule.\n")
-        slow_print(f"Your final score is: {score}.\n")
+        slow_print(
+            f"Well done, {username}! You are well on your way to "
+            "proving yourself as a hero of Hyrule.\n"
+        )
+        slow_print(
+            f"Your final score is: {score}.\n"
+        )
         update_scoreboard()
         time.sleep(3)
         clear_terminal()
         play_again()
     elif score >= 5:
-        slow_print(f"Not bad, {username}. With a little more exploration \
-        you will be well on your way to proving yourself as a hero \
-        of Hyrule!\n")
-        slow_print(f"Your final score is: {score}.\n")
+        slow_print(
+            f"Not bad, {username}. "
+            "With a little more exploration you will be "
+            "well on your way to proving yourself as a hero "
+            "of Hyrule!\n"
+            )
+        slow_print(
+            f"Your final score is: {score}.\n"
+            )
         update_scoreboard()
         time.sleep(3)
         clear_terminal()
         play_again()
     elif score < 5:
-        slow_print(f"Thank you for playing, {username}.\n")
-        slow_print(f"Your final score is: {score}.\n")
-        slow_print("We hope that you see this as an opportunity to \
-        delve deeper into the vast kingdom of Hyrule!\n")
+        slow_print(
+            f"Thank you for playing, {username}.\n"
+            )
+        slow_print(
+            f"Your final score is: {score}.\n"
+            )
+        slow_print(
+            "We hope that you see this as an opportunity to "
+            "delve deeper into the vast kingdom of Hyrule!\n"
+            )
         update_scoreboard()
         time.sleep(3)
         clear_terminal()
