@@ -18,7 +18,16 @@ Once all 10 questions have been answered, the final score will be provided to th
 
 ### Flowchart 
 
+![Breath of the Wild Quiz - flowchart](documentation/readme/design/botw_quiz_flowchart.png)
 
+The flowchart above was created during the planning phase of the project. 
+A few aspects were changed during the production of the quiz. 
+
+- Instead of prompting the user to click "Enter" to proceed on the title screen, the user is now automatically directed to the main menu 5 seconds after the program starts running. 
+    - I felt that it would negatively impact the user experience if an error was thrown if the user happened to press a key that is not "Enter". 
+- The username is now appended to the scoreboard at the end of the quiz, rather than at the start. 
+    - This was done to ensure that there would be no blank scores next to any of the names on the scoreboard. 
+- The user now has the option to play again or exit the quiz once all questions have been answered. 
 
 ### Colours
 
