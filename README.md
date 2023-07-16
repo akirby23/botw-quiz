@@ -2,7 +2,11 @@
 
 ## Description 
 
-Welcome to botw-quiz, a Python terminal based multiple choice quiz inspired by the iconic Nintendo Switch game, The Legend of Zelda: Breath of the Wild!
+Welcome to botw-quiz, a Python terminal-based multiple choice quiz inspired by the iconic Nintendo Switch game, The Legend of Zelda: Breath of the Wild!
+
+[Deployed app on Heroku](https://botw-quiz-259e8e0dd0c5.herokuapp.com/)
+
+![Breath of the Wild Quiz app - title screen](documentation/readme/design/botw-quiz-title-screen.PNG)
 
 ## How to play
 
@@ -10,7 +14,7 @@ The quiz itself consists of 10 questions in total based on the lore & gameplay m
 
 The user will have a choice of 4 answers for each question. 
 
-Each correct answer equates to 1 point towards the final score.
+Each correct answer equates to 1 point toward the final score.
 
 Once all 10 questions have been answered, the final score will be provided to the user, and the user’s name & final score will be added to the scoreboard, which can be accessed via the main menu. 
 
@@ -60,7 +64,7 @@ Once all 10 questions have been answered, the final score will be provided to th
 - The scoreboard title is printed to the terminal in ASCII text for an authentic game feel. 
 - A table is printed to the terminal containing two columns: name & score. 
 - The table data is stored within a [Google Sheet](https://docs.google.com/spreadsheets/d/1nyocvizezU-y-m0PedQcAAGDziM1yjVJAMwC1k_DBCg/edit#gid=0). 
-- Every time a user successfully completes the quiz, their name & final score are automatically appended to the relevant columns in the Google Sheet, and will be displayed on this page so they can check back on them and potentially compete with friends.  
+- Every time a user completes the quiz, their name & final score are automatically appended to the relevant columns in the Google Sheet and will be displayed on this page so they can check back on them and potentially compete with friends.  
 - The user can return to the main menu by entering "Q". 
 ![Scoreboard ValueError](documentation/readme/design/features/load-scoreboard-exception.gif)
 - A ValueError will be thrown if the user enters a value other than "Q" & the user will be prompted to try again. 
@@ -72,15 +76,15 @@ Once all 10 questions have been answered, the final score will be provided to th
 - The title is printed to the terminal in ASCII text for an authentic game feel. 
 - A list of game instructions are printed to the terminal so that the user knows what to expect once they start the quiz. 
 - A spoiler warning is printed to the terminal. 
-- The user is prompted to confirm if they want to start the quiz or return to the main menu, allowing them to return back to the main menu if they do not want to proceed or if they are not okay with spoilers.  
+- The user is prompted to confirm if they want to start the quiz or return to the main menu, allowing them to return to the main menu if they do not want to proceed or if they are not okay with spoilers.  
 ![Instructions page ValueError](documentation/readme/design/features/instructions-page-exceptions.gif)
-- A ValueError is thrown if the users enters a value that is not "Y" or "N" & the user will be prompted to try again.  
+- A ValueError is thrown if the user enters a value that is not "Y" or "N" & the user will be prompted to try again.  
 
 #### Quiz
 - Once the user selects "Y" on the Instructions page, the quiz will run. 
 ![Quiz - first question](documentation/readme/design/features/quiz.PNG)
 - The questions and answers are stored within the [Google Sheet](https://docs.google.com/spreadsheets/d/1nyocvizezU-y-m0PedQcAAGDziM1yjVJAMwC1k_DBCg/edit#gid=0) which is linked to the program.
-- The questions & correct answers are stored within a list of dictionaries that access the worksheet's values. The answer options are stored within a list of list that also accesses the the worksheet's values. 
+- The questions & correct answers are stored within a list of dictionaries that access the worksheet's values. The answer options are stored within a list of lists that also accesses the the worksheet's values. 
 - By accessing the quiz data via the worksheet, we allow for the questions & answers to be updated without the need to change the code, as long as the number of questions remains the same. 
 - The program loops through the quiz questions & answer options and prints them to the terminal. 
 ![Quiz checking answers](documentation/readme/design/features/quiz-correct-incorrect-answers.gif)
@@ -96,15 +100,15 @@ Once all 10 questions have been answered, the final score will be provided to th
     ![Feedback to the user when 5-6 questions have been answered correctly](documentation/readme/design/features/5-6-finish-quiz.gif)
     - 0-4 correct answer
     ![Feedback to the user when 0-4 questions have been answered correctly](documentation/readme/design/features/0-4-finish-quiz.gif)
-- The user is then given the option to play again if they want, or to exit the quiz. 
+- The user is then given the option to play again if they want or to exit the quiz. 
 ![Play again screen](documentation/readme/design/features/play-again.PNG)
     - If the user opts to play again, the score & questions answered variables will be reset to allow them to attempt to beat their score if they weren't happy with it. 
     - Otherwise, they can exit the quiz program.
 - A ValueError is thrown if the users enters a value that is not "Y" or "N" & the user will be prompted to try again. 
 
-#### General features
+#### General Features
 
-- Slow printing text is featured throughout the program for better readability. 
+- Slow-printing text is featured throughout the program for better readability. 
 - The terminal is cleared between functions & questions answered to keep it clean and free from information overload. 
 - The execution of certain code throughout the program is delayed to visually inform the user that actions are being taken. 
 - User input fields are set up to automatically capitalize the user's response to ensure that commands are executed regardless of whether or not they are entered in uppercase or lowercase fonts. 
@@ -145,12 +149,12 @@ ANSI colours were imported from the colorama library.
 
 Slight modifications were made to the Code Institute Mock Terminal for aesthetic purposes & to match the theme of the quiz. 
 
-![Breath of the Wild Quiz - Colour pallette](documentation/readme/design/botw-colour-pallette.png)
+![Breath of the Wild Quiz - Colour palette](documentation/readme/design/botw-colour-palette.png)
 - #d9dec5: Used as a fallback background colour. 
 - #94aba2: Used as a border colour for the "RUN QUIZ" button to add contrast.
 - #638139: Used to colour the "RUN QUIZ" button. 
 
-The colour pallette was generated from the background image below. 
+The colour palette was generated from the background image below. 
 
 
 ### Imagery
@@ -204,7 +208,7 @@ This project was deployed to Heroku using Code Institute's mock terminal.
 ### Code
 
 - [Stack Overflow](https://stackoverflow.com/questions/40056747/print-a-list-of-dictionaries-in-table-form) was consulted for guidance on how to print the scoreboard data to the terminal in the form of a table using Tabulate.
-- Credit to [gnuton](https://gist.github.com/gnuton/3c7a46447d2be0aee0b2) on Github for the code that within the "slow_print()" function.
+- Credit to [gnuton](https://gist.github.com/gnuton/3c7a46447d2be0aee0b2) on GitHub for the code within the "slow_print()" function.
 - [Fsymbols](https://fsymbols.com/generators/carty/) was used to generate the ASCII text for the Main Menu, Scoreboard & Instructions pages.
 - [Python Pool](https://www.pythonpool.com/python-colorama/) was consulted for guidance on how to print coloured text to the terminal using Colorama.
 - The “logo” ASCII art was obtained from [asciiart.eu](https://www.asciiart.eu/video-games/zelda) & modified by me to fit the terminal.
