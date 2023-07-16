@@ -140,10 +140,7 @@ def load_instructions_page():
         "your final score will be revealed.\n"
         )
     print(
-        "Important note: This quiz may contain spoilers relating to the "
-        "gameplay & \nstoryline of The Legend of Zelda: Breath of the Wild. "
-        "If you want to experience the game without spoilers, "
-        "it may be best to avoid the quiz for now.\n"
+        "Warning: Gameplay & storyline spoilers ahead! \n"
         )
     slow_print("Are you ready to prove yourself as a hero of Hyrule?")
     slow_print("Y - Start Quiz")
