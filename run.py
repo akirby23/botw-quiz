@@ -99,9 +99,9 @@ def load_main_menu():
                 exit_quiz()
                 break
             else:
-                raise ValueError("Please enter a number between 1-3.")
-        except ValueError as e:
-            print(f"Invalid input: {e}")
+                print("Invalid input: Please enter a number between 1-3.")
+        except ValueError:
+            print(f"Invalid input: Please enter a number between 1-3.")
 
 
 def start_quiz():
