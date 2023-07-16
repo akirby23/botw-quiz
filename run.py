@@ -59,7 +59,7 @@ def get_username():
     while True:
         try:
             global username
-            username = input("Please enter your name: ").capitalize()
+            username = input("Please enter your name: \n").capitalize()
             if len(username) < 2 or len(username) > 10:
                 raise ValueError(
                     "Username needs to be between 2 and 10 characters."
@@ -90,7 +90,7 @@ def load_main_menu():
     slow_print("3. Exit Quiz\n")
     while True:
         try:
-            menu_choice = int(input("Enter your choice (1-3): "))
+            menu_choice = int(input("Enter your choice (1-3): \n"))
             if menu_choice == 1:
                 load_instructions_page()
                 break
@@ -147,7 +147,7 @@ def load_instructions_page():
     slow_print("N - Return to Main Menu\n")
     while True:
         try:
-            user_input = input("Enter your choice (Y/N): ").capitalize()
+            user_input = input("Enter your choice (Y/N): \n").capitalize()
             if user_input == "Y":
                 clear_terminal()
                 run_quiz()
@@ -185,7 +185,7 @@ def run_quiz():
         while True:
             try:
                 user_answer = input(
-                    "Your answer (A, B, C or D): ").capitalize()
+                    "Your answer (A, B, C or D): \n").capitalize()
                 if user_answer in ['A', 'B', 'C', 'D']:
                     break
                 else:
@@ -223,10 +223,9 @@ def finish_quiz():
     clear_terminal()
     if score == 10:
         slow_print(
-            f"Congratulations, {username}! "
+            f"Congratulations, {username}! \n"
             "You have well and truly "
-            "proven yourself as a hero of "
-            "Hyrule!\n"
+            "proven yourself as a hero of Hyrule!\n"
             )
         slow_print(
             f"Your final score is: {score}.\n"
@@ -292,7 +291,7 @@ def load_scoreboard():
     print(tabulate.tabulate(rows, header, tablefmt='rst'))
     while True:
         try:
-            user_input = input("Enter 'Q' to return to the main menu: ")
+            user_input = input("Enter 'Q' to return to the main menu: \n")
             if user_input != "q":
                 raise ValueError(
                     "'Q' needs to be entered to return to the main menu"
@@ -343,7 +342,7 @@ def play_again():
     slow_print("N - Exit quiz\n")
     while True:
         try:
-            user_input = input("Enter your choice (Y/N): ").capitalize()
+            user_input = input("Enter your choice (Y/N): \n").capitalize()
             if user_input == "Y":
                 clear_terminal()
                 print("Restarting quiz...")
