@@ -24,6 +24,7 @@ answers_dict = answers_data.get_all_records()
 correct_answers_data = SHEET.worksheet("correct_answers")
 correct_answers_dict = correct_answers_data.get_all_records()
 
+# Unpacked dictionary values are appended to the lists below
 question_number_list = []
 question_list = []
 option_a_list = []
@@ -33,12 +34,17 @@ option_d_list = []
 correct_option_list = []
 correct_answer_list = []
 
-# Unpack the dictionary of questions to access the values of the question numbers & questions
+"""
+Unpack the dictionary of questions to access the values
+of the question numbers & questions
+"""
 for questions in questions_dict:
     question_number = questions['question_number']
     question = questions['question']
     question_number_list.append(question_number)
     question_list.append(question)
+
+
 # Unpack the dictionary of answers to access the values of options a, b, c & d
 for answers in answers_dict:
     option_a = answers['option_a']
@@ -50,13 +56,19 @@ for answers in answers_dict:
     option_c_list.append(option_c)
     option_d_list.append(option_d)
 
-# Unpack the dictionary of correct answers to access the values of the correct option & correct answer
+
+"""
+Unpack the dictionary of correct answers to access the values of the correct
+option & correct answer
+"""
 for correct_answers in correct_answers_dict:
     correct_option = correct_answers['correct_option']
     correct_answer = correct_answers['correct_answer']
     correct_option_list.append(correct_option)
     correct_answer_list.append(correct_answer)
 
+
+# Dictionary of quiz questions & corresponding correct answers
 QUIZ_QUESTIONS = {
     question_list[0]: correct_option_list[0],
     question_list[1]: correct_option_list[1],
@@ -71,6 +83,7 @@ QUIZ_QUESTIONS = {
 }
 
 
+# List of lists containing answer options
 QUIZ_ANSWERS = [
     [option_a_list[0], option_b_list[0], option_c_list[0], option_d_list[0]],
     [option_a_list[1], option_b_list[1], option_c_list[1], option_d_list[1]],
