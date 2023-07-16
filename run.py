@@ -117,7 +117,7 @@ def load_instructions_page():
     print(instructions)
     print(
         "This multiple-choice quiz will test your knowledge on "
-        "the iconic action-adventure game \n"
+        "the iconic \naction-adventure game "
         "The Legend of Zelda: Breath of the Wild.\n"
         )
     print(
@@ -125,8 +125,8 @@ def load_instructions_page():
         "Each question will have 4 potential answers."
         )
     print(
-        "2. To choose your answer, type the corresponding letter (a, b, c, d) "
-        "for the option \n you believe to be correct and click enter."
+        "2. To choose your answer, type the corresponding letter \n(a, b, c, d) "
+        "for the option you believe to be correct and click enter."
         )
     print(
         "3. You can choose one option per question. "
@@ -250,9 +250,9 @@ def finish_quiz():
         play_again()
     elif score >= 5:
         slow_print(
-            f"Not bad, {username}. "
+            f"Not bad, {username}. \n"
             "With a little more exploration you will be "
-            "well on your way to proving yourself as a hero \n"
+            "well on your way to \nproving yourself as a hero "
             "of Hyrule!\n"
             )
         slow_print(
