@@ -113,21 +113,34 @@ def start_quiz():
     """
     clear_terminal()
     print(instructions)
-    print("This multiple-choice quiz will test your knowledge on the iconic \
-    action-adventure game The Legend of Zelda: Breath of the Wild.\n")
-    print("1. There are 10 questions in total. \
-    Each question will have 4 potential answers.")
-    print("2. To choose your answer, type the corresponding letter \
-    (a, b, c, d) for the option you believe to be correct and click enter.")
-    print("3. You can choose one option per question. \
-    Once you submit your answer, you cannot change it.")
+    print(
+        "This multiple-choice quiz will test your knowledge on "
+        "the iconic action-adventure game "
+        "The Legend of Zelda: Breath of the Wild.\n"
+        )
+    print(
+        "1. There are 10 questions in total. "
+        "Each question will have 4 potential answers."
+        )
+    print(
+        "2. To choose your answer, type the corresponding letter (a, b, c, d) "
+        "for the option you believe to be correct and click enter."
+        )
+    print(
+        "3. You can choose one option per question. "
+        "Once you submit your answer, you cannot change it."
+        )
     print("4. You will earn 1 point for each correct answer.")
-    print("5. Once you have answered all 10 questions, \
-    your final score will be revealed.\n")
-    print("Important note: This quiz may contain spoilers relating to the \
-    gameplay & storyline of The Legend of Zelda: Breath of the Wild. \
-    If you want to experience the game without spoilers, \
-    it may be best to avoid the quiz for now.\n")
+    print(
+        "5. Once you have answered all 10 questions, "
+        "your final score will be revealed.\n"
+        )
+    print(
+        "Important note: This quiz may contain spoilers relating to the "
+        "gameplay & storyline of The Legend of Zelda: Breath of the Wild. "
+        "If you want to experience the game without spoilers, "
+        "it may be best to avoid the quiz for now.\n"
+        )
     slow_print("Are you ready to prove yourself as a hero of Hyrule?")
     slow_print("Y - Start Quiz")
     slow_print("N - Return to Main Menu\n")
