@@ -73,7 +73,7 @@ def get_username():
                 load_main_menu()
                 break
         except ValueError as e:
-            print(f"Invalid input: {e} Please try again.")
+            print(f"Invalid input: {e} \nPlease try again.\n")
 
 
 def load_main_menu():
@@ -117,7 +117,7 @@ def load_instructions_page():
     print(instructions)
     print(
         "This multiple-choice quiz will test your knowledge on "
-        "the iconic action-adventure game "
+        "the iconic action-adventure game \n"
         "The Legend of Zelda: Breath of the Wild.\n"
         )
     print(
@@ -126,11 +126,11 @@ def load_instructions_page():
         )
     print(
         "2. To choose your answer, type the corresponding letter (a, b, c, d) "
-        "for the option you believe to be correct and click enter."
+        "for the option \n you believe to be correct and click enter."
         )
     print(
         "3. You can choose one option per question. "
-        "Once you submit your answer, you cannot change it."
+        "Once you submit your answer, you \ncannot change it."
         )
     print(
         "4. You will earn 1 point for each correct answer."
@@ -141,7 +141,7 @@ def load_instructions_page():
         )
     print(
         "Important note: This quiz may contain spoilers relating to the "
-        "gameplay & storyline of The Legend of Zelda: Breath of the Wild. "
+        "gameplay & \nstoryline of The Legend of Zelda: Breath of the Wild. "
         "If you want to experience the game without spoilers, "
         "it may be best to avoid the quiz for now.\n"
         )
@@ -228,7 +228,8 @@ def finish_quiz():
         slow_print(
             f"Congratulations, {username}! "
             "You have well and truly "
-            "proven yourself as a hero of Hyrule!\n"
+            "proven yourself as a hero of "
+            "Hyrule!\n"
             )
         slow_print(
             f"Your final score is: {score}.\n"
@@ -240,7 +241,8 @@ def finish_quiz():
     elif score >= 7:
         slow_print(
             f"Well done, {username}! You are well on your way to "
-            "proving yourself as a hero of Hyrule.\n"
+            "proving yourself as a hero of \n"
+            "Hyrule.\n"
         )
         slow_print(
             f"Your final score is: {score}.\n"
@@ -253,7 +255,7 @@ def finish_quiz():
         slow_print(
             f"Not bad, {username}. "
             "With a little more exploration you will be "
-            "well on your way to proving yourself as a hero "
+            "well on your way to proving yourself as a hero \n"
             "of Hyrule!\n"
             )
         slow_print(
@@ -272,7 +274,8 @@ def finish_quiz():
             )
         slow_print(
             "We hope that you see this as an opportunity to "
-            "delve deeper into the vast kingdom of Hyrule!\n"
+            "delve deeper into the vast \n"
+            "kingdom of Hyrule!\n"
             )
         update_scoreboard()
         time.sleep(3)
@@ -399,4 +402,5 @@ def main():
 
 
 main()
+
 
