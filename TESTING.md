@@ -138,3 +138,8 @@ To resolve this, I declared "logo" as a raw string instead of as a docstring.
 ![art.py validator testing post-fix](documentation/testing/validator-testing/art-validator-testing-post-fix.PNG)
 
 ## Bugs
+
+| Issue  | Notes  | Status  |
+|---|---|---|
+| A for loop was set up to iterate through an unpacked list of dictionaries that was pulled from the botw-quiz Google Sheet. All questions, answers and answer options were stored within 1 worksheet. When the code was executed, the last question and accompanying set of answers was being printed to the terminal, and was being repeated every time a question was answered.   | Separated the questions & answers into separate worksheets. Accessed values from each worksheet. Created a list of dictionaries containing questions as keys and correct answer options as values. Created a list of lists containing the answer options. Created a new for loop to iterate through the list of dictionaries & list of lists at the same time.  |  Resolved |
+| Part of the logo from the title page remained printed to the terminal, even after the clear_terminal() function was called. ![Logo bug - text still printed to the terminal after it has been cleared.](documentation/testing/bugs/logo-bug.PNG)  | In order to prioritise the smooth running of the program, I removed the background from the ASCII text to reduct its overall size. ![Original logo](documentation/testing/bugs/original-logo.PNG) ![New logo](documentation/testing/bugs/new-logo.PNG)  | Resolved |
