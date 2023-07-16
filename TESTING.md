@@ -37,7 +37,7 @@ The following scenarios were tested locally on CodeAnywhere and on the deployed 
 |When user enters option “1”, the instructions page is loaded. | Pass |
 | When user enters option “2” on the main menu, the scoreboard page is loaded | Pass  |
 | When the user enters option “3”, the Triforce logo & thank you message is printed to the terminal, and the program stops running. | Pass | 
-| A ValueError is thrown if the user enters a value other than 1, 2 or 3 on the main menu, and the user in prompted to try again.  |  |
+| A ValueError is thrown if the user enters a value other than 1, 2 or 3 on the main menu, and the user in prompted to try again.  | Pass |
 
 </details>
 
@@ -69,7 +69,7 @@ The following scenarios were tested locally on CodeAnywhere and on the deployed 
 |  Scenario | Status  |
 |---|---|
 | Once the quiz begins, the questions & answers are printed to the terminal, and the user is prompted to enter an answer (A, B, C or D).  |  Pass |
-| If the user selects the correct answer, “Correct!” is printed to the terminal in green.  |   |
+| If the user selects the correct answer, “Correct!” is printed to the terminal in green.  |  Pass |
 | Score is incremented by 1 when the user selects the correct answer.   |  Pass |
 | If the user selects an incorrect answer, “Not quite! The correct answer was option: "*correct option*” is printed to the terminal in red.   | Pass  |
 | Score is not incremented by 1 when the user selects a wrong answer.  |  Pass |
