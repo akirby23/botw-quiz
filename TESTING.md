@@ -15,7 +15,7 @@ The following scenarios were tested locally on CodeAnywhere and on the deployed 
 </details>
 
 <details>
-<summary>Username</summary>
+<summary>Username Input</summary>
 
 |  Scenario | Status  |
 |---|---|
@@ -110,5 +110,21 @@ The following scenarios were tested locally on CodeAnywhere and on the deployed 
 
 
 ## Validator Testing
+
+### PEP8
+
+Each of the Python files were run through the CI Python Linter. 
+
+- [art.py](art.py)
+
+![art.py validator testing pre-fix](documentation/testing/validator-testing/art-validator-testing-pre-fix.PNG)
+
+Initially, "W605 invalid escape sequence \" errors were thrown when I validated the code. 
+
+To resolve this, I declared "logo" as a raw string instead of as a docstring. 
+
+![art.py validator testing post-fix](documentation/testing/validator-testing/art-validator-testing-post-fix.PNG)
+
+
 
 ## Bugs
