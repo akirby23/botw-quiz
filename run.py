@@ -302,7 +302,7 @@ def load_scoreboard():
                 load_main_menu()
                 break
         except ValueError as e:
-            print(f"Invalid input: {e},\n please try again.")
+            print(f"Invalid input: {e},\nplease try again.")
 
 
 def update_scoreboard():
