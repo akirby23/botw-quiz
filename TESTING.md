@@ -113,7 +113,19 @@ The following scenarios were tested locally on CodeAnywhere and on the deployed 
 
 ### PEP8
 
-Each of the Python files were run through the CI Python Linter. 
+Each of the Python files were run through the CI Python Linter.
+
+- [run.py](run.py)
+
+![run.py validator testing](documentation/testing/validator-testing/run-validator-testing.PNG)
+
+Passed with no issues.
+
+- [questions.py](questions.py)
+
+![questions.py validator testing](documentation/testing/validator-testing/questions-validator-testing.PNG)
+
+Passed with no issues.
 
 - [art.py](art.py)
 
@@ -124,7 +136,5 @@ Initially, "W605 invalid escape sequence \" errors were thrown when I validated 
 To resolve this, I declared "logo" as a raw string instead of as a docstring. 
 
 ![art.py validator testing post-fix](documentation/testing/validator-testing/art-validator-testing-post-fix.PNG)
-
-
 
 ## Bugs

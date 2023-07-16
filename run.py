@@ -125,7 +125,8 @@ def load_instructions_page():
         "Each question will have 4 potential answers."
         )
     print(
-        "2. To choose your answer, type the corresponding letter \n(a, b, c, d) "
+        "2. To choose your answer, type the corresponding letter "
+        "\n(a, b, c, d) "
         "for the option you believe to be correct and click enter."
         )
     print(
