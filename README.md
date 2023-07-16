@@ -14,6 +14,40 @@ Each correct answer equates to 1 point towards the final score.
 
 Once all 10 questions have been answered, the final score will be provided to the user, and the user’s name & final score will be added to the scoreboard, which can be accessed via the main menu. 
 
+## Design
+
+### Flowchart 
+
+
+
+### Colours
+
+#### ANSI colours
+
+ANSI colours were imported from the colorama library.
+
+- Yellow: used for aesthetic purposes to print the quiz logo & triforce ASCII art.
+- Green: used to provide visual feedback to the user when they select a correct answer.
+- Red: used to provide visual feedback to the user when they select an incorrect answer.
+
+#### HEX colours
+
+Slight modifications were made to the Code Institute Mock Terminal for aesthetic purposes & to match the theme of the quiz. 
+
+![Breath of the Wild Quiz - Colour pallette](documentation/readme/design/botw-colour-pallette.png)
+- #d9dec5: Used as a fallback background colour. 
+- #94aba2: Used as a border colour for the "RUN QUIZ" button to add contrast.
+- #638139: Used to colour the "RUN QUIZ" button. 
+
+The colour pallette was generated from the background image below. 
+
+
+### Imagery
+
+![Breath of the Wild Quiz - background image](documentation/readme/design/botw-background-image.png)
+
+The image above, featuring a glimpse of the vast kingdom of Hyrule, was added as a background image to compliment the theme of the quiz. 
+
 ## Features
 
 ### Existing Features
